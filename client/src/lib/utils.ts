@@ -51,8 +51,8 @@ export const serviceItems = [
     title: "Massagem Miofascial",
     description: "Técnica focada na liberação da fáscia muscular, aliviando dores crônicas, melhorando a mobilidade e restaurando o equilíbrio corporal.",
     icon: "leaf",
-    duration: "60 min",
-    price: "R$150",
+    duration: "90 min",
+    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
   },
 ];
 
