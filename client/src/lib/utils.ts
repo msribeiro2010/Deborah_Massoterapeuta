@@ -16,8 +16,8 @@ export const serviceItems = [
   },
   {
     id: 2,
-    title: "Massagem Terapêutica",
-    description: "Focada em questões específicas como dores musculares e tensão crônica, utilizando técnicas para restaurar a função e aliviar o desconforto.",
+    title: "Massagem Modeladora",
+    description: "Focada na redução de medidas e modelagem corporal, combate à celulite e gordura localizada, proporcionando contornos mais definidos.",
     icon: "heartbeat",
     duration: "75 min",
     price: "R$150",

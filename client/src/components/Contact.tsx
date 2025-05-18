@@ -257,7 +257,7 @@ const Contact = () => {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="relaxing">Massagem Relaxante</SelectItem>
-                            <SelectItem value="therapeutic">Massagem Terapêutica</SelectItem>
+                            <SelectItem value="modeling">Massagem Modeladora</SelectItem>
                             <SelectItem value="lymphatic">Drenagem Linfática</SelectItem>
                             <SelectItem value="hotstone">Massagem com Pedras Quentes</SelectItem>
                             <SelectItem value="shiatsu">Shiatsu</SelectItem>
