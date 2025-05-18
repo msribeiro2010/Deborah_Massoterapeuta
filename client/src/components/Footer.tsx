@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-display font-semibold mb-4">Deborah Santalena</h3>
             <p className="text-white/80 mb-4">
-              Specialist in massage therapy and integrative practices, dedicated to promoting well-being and balance through therapeutic touch.
+              Especialista em massoterapia e práticas integrativas, dedicada a promover bem-estar e equilíbrio através do toque terapêutico.
             </p>
             <div className="flex space-x-4">
               <a
@@ -36,26 +36,26 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-display font-semibold mb-4">Services</h3>
+            <h3 className="text-xl font-display font-semibold mb-4">Serviços</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Relaxing Massage
+                  Massagem Relaxante
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Therapeutic Massage
+                  Massagem Terapêutica
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Lymphatic Drainage
+                  Drenagem Linfática
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Hot Stone Massage
+                  Massagem com Pedras Quentes
                 </a>
               </li>
               <li>
@@ -65,68 +65,68 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Aromatherapy
+                  Aromaterapia
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-display font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-display font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#home" className="text-white/80 hover:text-white transition">
-                  Home
+                  Início
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-white/80 hover:text-white transition">
-                  About
+                  Sobre
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Services
+                  Serviços
                 </a>
               </li>
               <li>
                 <a href="#testimonials" className="text-white/80 hover:text-white transition">
-                  Testimonials
+                  Depoimentos
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-white/80 hover:text-white transition">
-                  Contact
+                  Contato
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-display font-semibold mb-4">Contact</h3>
+            <h3 className="text-xl font-display font-semibold mb-4">Contato</h3>
             <ul className="space-y-3 text-white/80">
               <li className="flex">
                 <span className="mt-1 mr-3">📍</span>
                 <span>
-                  123 Wellness Way, Serenity Hills
+                  Rua Salvador Lombardi Netto, 260 - Centro
                   <br />
-                  New York, NY 10001
+                  Paulínia - SP, 13140-000
                 </span>
               </li>
               <li className="flex">
                 <span className="mt-1 mr-3">📞</span>
-                <span>(212) 555-7890</span>
+                <span>(19) 97133-3256</span>
               </li>
               <li className="flex">
                 <span className="mt-1 mr-3">✉️</span>
-                <span>contact@alexandrawilliams.com</span>
+                <span>deborah_santalena@hotmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/70">
-          <p>&copy; {new Date().getFullYear()} Deborah Santalena Massage Therapy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Deborah Santalena Massoterapia. Todos os direitos reservados a Marcelo Ribeiro.</p>
         </div>
       </div>
     </footer>
