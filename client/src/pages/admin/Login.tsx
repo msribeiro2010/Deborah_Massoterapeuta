@@ -1,62 +1,55 @@
-import React from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import React, { useState } from 'react';
 import { useLocation } from 'wouter';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 
-const loginSchema = z.object({
-  username: z.string().min(1, { message: 'Nome de usuário é obrigatório' }),
-  password: z.string().min(1, { message: 'Senha é obrigatória' }),
-});
-
-type LoginFormData = z.infer<typeof loginSchema>;
-
-export default function Login() {
-  const { login, loginLoading, isAuthenticated } = useAuth();
-  const [location, navigate] = useLocation();
+export default function AdminLogin() {
   const { toast } = useToast();
+  const [location, navigate] = useLocation();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
-    defaultValues: {
-      username: '',
-      password: '',
-    },
-  });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-  React.useEffect(() => {
-    if (isAuthenticated) {
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error('Credenciais inválidas');
+      }
+
+      toast({
+        title: 'Login bem-sucedido',
+        description: 'Redirecionando para o painel administrativo...',
+      });
+
       navigate('/admin/dashboard');
+    } catch (error) {
+      toast({
+        title: 'Erro de autenticação',
+        description: error instanceof Error ? error.message : 'Ocorreu um erro durante o login',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
     }
-  }, [isAuthenticated, navigate]);
-
-  const onSubmit = (data: LoginFormData) => {
-    login(data, {
-      onSuccess: () => {
-        toast({
-          title: 'Login bem-sucedido',
-          description: 'Você foi autenticado com sucesso.',
-        });
-        navigate('/admin/dashboard');
-      },
-      onError: (error: any) => {
-        toast({
-          title: 'Erro de autenticação',
-          description: error?.message || 'Credenciais inválidas. Tente novamente.',
-          variant: 'destructive',
-        });
-      },
-    });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-slate-50">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl text-center">Login Administrativo</CardTitle>
@@ -65,18 +58,16 @@ export default function Login() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="username">Nome de usuário</Label>
               <Input
                 id="username"
                 placeholder="Digite seu nome de usuário"
-                {...form.register('username')}
-                autoComplete="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
               />
-              {form.formState.errors.username && (
-                <p className="text-sm text-red-500">{form.formState.errors.username.message}</p>
-              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Senha</Label>
@@ -84,15 +75,13 @@ export default function Login() {
                 id="password"
                 type="password"
                 placeholder="Digite sua senha"
-                {...form.register('password')}
-                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
-              {form.formState.errors.password && (
-                <p className="text-sm text-red-500">{form.formState.errors.password.message}</p>
-              )}
             </div>
-            <Button type="submit" className="w-full" disabled={loginLoading}>
-              {loginLoading ? 'Entrando...' : 'Entrar'}
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? 'Entrando...' : 'Entrar'}
             </Button>
           </form>
         </CardContent>
