@@ -99,6 +99,18 @@ const Services = () => {
           >
             Todas as modalidades podem ser associadas com aromaterapia e ventosaterapia.
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="max-w-xl mx-auto mt-6 p-3 rounded-lg bg-gradient-to-r from-[#8BBF9F]/10 to-[#4A7C91]/10 border border-[#8BBF9F]/30"
+          >
+            <p className="text-[#4A7C91] font-semibold">
+              ✨ Atendimento exclusivo para o público feminino. Sua beleza e relaxamento em nossas mãos. ✨
+            </p>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
