@@ -111,8 +111,16 @@ const Contact = () => {
                   <span className="text-[#8BBF9F]">📞</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#494644] mb-1">Phone</h3>
-                  <p className="text-gray-600">(212) 555-7890</p>
+                  <h3 className="font-semibold text-[#494644] mb-1">Telefone</h3>
+                  <a 
+                    href="https://wa.me/5519971333256" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-[#8BBF9F] transition-colors flex items-center"
+                  >
+                    (19) 97133-3256
+                    <span className="ml-2 text-[#25D366] text-sm">WhatsApp</span>
+                  </a>
                 </div>
               </div>
 
@@ -122,7 +130,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#494644] mb-1">Email</h3>
-                  <p className="text-gray-600">contact@deborahsantalena.com</p>
+                  <p className="text-gray-600">contato@deborahsantalena.com</p>
                 </div>
               </div>
 
