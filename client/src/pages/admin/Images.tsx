@@ -27,6 +27,9 @@ export default function Images() {
   const [editingImage, setEditingImage] = useState<SiteImage | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Form state
   const [form, setForm] = useState({
@@ -152,6 +155,59 @@ export default function Images() {
 
   const handleSectionChange = (value: string) => {
     setForm(prev => ({ ...prev, section: value }));
+  };
+  
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    setIsUploading(true);
+    setUploadProgress(10); // Começa com 10% para feedback visual imediato
+    
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+      
+      const response = await fetch('/api/admin/upload-image', {
+        method: 'POST',
+        body: formData,
+        credentials: 'include'
+      });
+      
+      setUploadProgress(90);
+      
+      if (!response.ok) {
+        throw new Error('Falha ao enviar imagem');
+      }
+      
+      const data = await response.json();
+      
+      // Atualiza o formulário com a URL da imagem enviada
+      setForm(prev => ({ ...prev, imageUrl: data.imageUrl }));
+      
+      toast({
+        title: 'Sucesso',
+        description: 'Imagem enviada com sucesso',
+      });
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast({
+        title: 'Erro',
+        description: error instanceof Error ? error.message : 'Ocorreu um erro ao enviar a imagem',
+        variant: 'destructive'
+      });
+      
+      // Limpa o campo de arquivo
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } finally {
+      setUploadProgress(100);
+      setTimeout(() => {
+        setIsUploading(false);
+        setUploadProgress(0);
+      }, 500);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -358,15 +414,45 @@ export default function Images() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="imageUrl" className="text-right">URL da Imagem</Label>
-                  <Input
-                    id="imageUrl"
-                    name="imageUrl"
-                    value={form.imageUrl}
-                    onChange={handleFormChange}
-                    className="col-span-3"
-                    required
-                  />
+                  <Label htmlFor="imageUpload" className="text-right">Imagem</Label>
+                  <div className="col-span-3 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={isUploading}
+                      >
+                        {isUploading ? 'Enviando...' : 'Enviar arquivo'}
+                      </Button>
+                      <span className="text-sm text-muted-foreground">ou</span>
+                      <Input
+                        id="imageUrl"
+                        name="imageUrl"
+                        value={form.imageUrl}
+                        onChange={handleFormChange}
+                        placeholder="Digite a URL da imagem"
+                        className="flex-1"
+                      />
+                    </div>
+                    
+                    <input 
+                      type="file" 
+                      ref={fileInputRef}
+                      className="hidden"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                    />
+                    
+                    {isUploading && (
+                      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mt-2">
+                        <div 
+                          className="bg-blue-600 h-2.5 rounded-full" 
+                          style={{ width: `${uploadProgress}%` }}
+                        ></div>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="title" className="text-right">Título</Label>
