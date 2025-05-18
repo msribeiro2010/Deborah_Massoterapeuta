@@ -12,7 +12,7 @@ export const serviceItems = [
     description: "Movimentos suaves que aliviam a tensão e promovem o relaxamento profundo do corpo e da mente, ideal para redução do estresse.",
     icon: "spa",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ export const serviceItems = [
     description: "Focada na redução de medidas e modelagem corporal, combate à celulite e gordura localizada, proporcionando contornos mais definidos.",
     icon: "heartbeat",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ export const serviceItems = [
     description: "Técnica suave que estimula o sistema linfático, reduz edemas e ajuda a eliminar toxinas, melhorando a circulação e o sistema imunológico.",
     icon: "hands",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ export const serviceItems = [
     description: "Utiliza pedras vulcânicas aquecidas que retêm calor, promovendo relaxamento muscular profundo, melhorando a circulação e o fluxo de energia.",
     icon: "fire",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ export const serviceItems = [
     description: "Técnica japonesa que aplica pressão em pontos específicos do corpo, equilibrando o fluxo de energia, aliviando dores e promovendo bem-estar.",
     icon: "fan",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ export const serviceItems = [
     description: "Técnica focada na liberação da fáscia muscular, aliviando dores crônicas, melhorando a mobilidade e restaurando o equilíbrio corporal.",
     icon: "leaf",
     duration: "90 min",
-    price: "Pacote 5: R$170 | 10: R$250 | Avulsa: R$300",
+    price: "Valor sob consulta",
   },
 ];
 
