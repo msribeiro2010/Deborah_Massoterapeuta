@@ -20,18 +20,18 @@ function AdminRoute({ component: Component, ...rest }: { component: React.Compon
   const { isAuthenticated, isLoading } = useAuth();
   const [location, navigate] = useLocation();
 
-  if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
-  }
-
-  // Usamos um efeito para redirecionar de forma segura
+  // Renderizamos apenas condicionalmente com base no estado
+  // de autenticação, sem misturar hooks e renderização condicional
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
       navigate("/admin/login");
     }
   }, [isLoading, isAuthenticated, navigate]);
 
-  // Renderiza o componente apenas se estiver autenticado
+  if (isLoading) {
+    return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
+  }
+
   if (!isAuthenticated) {
     return <div className="flex items-center justify-center min-h-screen">Redirecionando...</div>;
   }
