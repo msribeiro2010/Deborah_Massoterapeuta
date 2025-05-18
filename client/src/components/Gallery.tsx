@@ -45,7 +45,7 @@ const Gallery = () => {
       }));
 
   return (
-    <section className="py-24 bg-[#EBFAEF]">
+    <section className="py-24 bg-[#EBFAEF] overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.span
@@ -85,12 +85,12 @@ const Gallery = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group h-80 flex items-center justify-center bg-white rounded-xl shadow-sm overflow-hidden"
+              className="relative group h-80 flex items-center justify-center bg-transparent rounded-xl overflow-hidden"
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="max-h-full max-w-full object-contain p-3"
+                className="max-h-full max-w-full object-contain"
               />
               {image.description && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-3 rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity">
