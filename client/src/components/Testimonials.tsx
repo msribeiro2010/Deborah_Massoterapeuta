@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
   return (
-    <div className="bg-[#F9F4EE] p-8 rounded-xl shadow-sm h-full flex flex-col">
+    <div className="bg-[#F9F4EE] p-6 sm:p-8 rounded-xl shadow-sm h-full flex flex-col">
       <div className="flex-grow">
         <div className="flex text-[#8BBF9F] mb-4">
           {[...Array(5)].map((_, i) => (
@@ -180,7 +180,7 @@ const Testimonials = () => {
             className="bg-[#8BBF9F] hover:bg-[#8BBF9F]/90 text-white rounded-full font-medium transition flex items-center justify-center"
           >
             <a href="#contact">
-              Book Your Experience <ChevronRight className="ml-2 h-4 w-4" />
+              Agende Sua Sessão <ChevronRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </motion.div>
