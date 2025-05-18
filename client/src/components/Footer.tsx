@@ -126,7 +126,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/70">
-          <p>&copy; {new Date().getFullYear()} Deborah Santalena Massoterapia. Todos os direitos reservados a Marcelo Ribeiro.</p>
+          <p>&copy; {new Date().getFullYear()} Deborah Santalena Massoterapia. Todos os direitos reservados Marcelo Ribeiro - msribeiro2010@icloud.com</p>
         </div>
       </div>
     </footer>
