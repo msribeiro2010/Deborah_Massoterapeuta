@@ -115,13 +115,14 @@ const Gallery = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden rounded-xl border border-[#8BBF9F]/20 h-80"
+              className="relative group overflow-hidden rounded-[32px] border-2 border-[#8BBF9F]/25 hover:border-[#8BBF9F]/50 shadow-lg hover:shadow-xl transition-all duration-500 h-80 transform hover:scale-[1.03]"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 group-hover:opacity-0 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4A7C91]/5 to-[#8BBF9F]/10 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-white/10 z-0 group-hover:bg-white/5 transition-colors duration-500"></div>
               <img
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-contain p-3"
+                className="h-full w-full object-contain p-4 relative z-10 transition-transform duration-300 group-hover:scale-105"
               />
               {image.description && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
