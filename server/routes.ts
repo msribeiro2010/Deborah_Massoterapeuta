@@ -60,8 +60,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/images/:section", async (req, res) => {
     try {
       const { section } = req.params;
-      const images = await storage.getSiteImagesBySection(section);
-      res.status(200).json(images);
+      
+      if (section === "all") {
+        // Retorna todas as imagens
+        const images = await storage.getSiteImages();
+        res.status(200).json(images);
+      } else {
+        // Retorna imagens por seção específica
+        const images = await storage.getSiteImagesBySection(section);
+        res.status(200).json(images);
+      }
     } catch (error) {
       console.error("Error fetching section images:", error);
       res.status(500).json({
