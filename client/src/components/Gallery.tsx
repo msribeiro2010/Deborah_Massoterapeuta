@@ -16,10 +16,26 @@ const Gallery = () => {
   useEffect(() => {
     async function loadAmbienteImages() {
       try {
-        const response = await fetch('/api/images/ambiente');
-        if (response.ok) {
-          const images = await response.json();
-          setAmbienteImages(images);
+        // Busca imagens da seção 'ambiente'
+        const ambienteResponse = await fetch('/api/images/ambiente');
+        if (ambienteResponse.ok) {
+          const ambienteImgs = await ambienteResponse.json();
+          
+          // Busca também imagens que estão sem seção definida ou com outras seções
+          const allResponse = await fetch('/api/images/all');
+          if (allResponse.ok) {
+            const allImages = await allResponse.json();
+            
+            // Filtra imagens que têm seção vazia ou são da gallery
+            const extraImages = allImages.filter(img => 
+              !img.section || img.section === '' || img.section === 'gallery'
+            );
+            
+            // Adiciona todas as imagens relevantes ao estado
+            setAmbienteImages([...ambienteImgs, ...extraImages]);
+          } else {
+            setAmbienteImages(ambienteImgs);
+          }
         }
       } catch (error) {
         console.error("Erro ao carregar imagens do ambiente:", error);
