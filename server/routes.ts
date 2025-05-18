@@ -359,24 +359,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   // Rota para upload de imagem
-  app.post("/api/admin/upload-image", isAdmin, upload.single('image'), async (req, res) => {
+  app.post("/api/admin/upload-image", isAdmin, async (req, res) => {
     try {
-      if (!req.file) {
-        return res.status(400).json({
-          message: "Nenhum arquivo enviado ou formato inválido."
+      console.log("Iniciando upload de imagem");
+      
+      const uploadMiddleware = upload.single('image');
+      
+      uploadMiddleware(req, res, async (err) => {
+        if (err) {
+          console.error("Erro no middleware de upload:", err);
+          return res.status(500).json({
+            message: "Erro ao processar o upload da imagem: " + err.message
+          });
+        }
+        
+        if (!req.file) {
+          console.log("Nenhum arquivo enviado ou formato inválido");
+          return res.status(400).json({
+            message: "Nenhum arquivo enviado ou formato inválido."
+          });
+        }
+        
+        console.log("Arquivo recebido:", req.file);
+        
+        // Gera a URL da imagem
+        const imageUrl = getImageUrl(req.file.filename);
+        console.log("URL da imagem gerada:", imageUrl);
+        
+        res.status(201).json({
+          message: "Imagem enviada com sucesso",
+          imageUrl: imageUrl,
+          filename: req.file.filename
         });
-      }
-      
-      // Gera a URL da imagem
-      const imageUrl = getImageUrl(req.file.filename);
-      
-      res.status(201).json({
-        message: "Imagem enviada com sucesso",
-        imageUrl: imageUrl,
-        filename: req.file.filename
       });
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Erro geral no upload:", error);
       res.status(500).json({
         message: "Ocorreu um erro ao enviar a imagem."
       });
