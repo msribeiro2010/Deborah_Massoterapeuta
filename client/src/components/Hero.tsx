@@ -71,9 +71,9 @@ const Hero = () => {
           <p className="text-base sm:text-lg md:text-xl mb-4 text-white/95 max-w-md md:max-w-xl text-shadow-sm">
             Com técnicas especializadas de massoterapia, ajudo você a encontrar o relaxamento profundo e o bem-estar que seu corpo merece.
           </p>
-          <div className="inline-block bg-gradient-to-r from-[#8BBF9F]/70 to-[#4A7C91]/70 backdrop-blur-sm py-2 px-4 rounded-lg mb-6 md:mb-8 border border-white/20 shadow-lg">
+          <div className="inline-block bg-gradient-to-r from-[#8BBF9F]/70 to-[#4A7C91]/70 backdrop-blur-sm py-3 px-5 rounded-lg mb-6 md:mb-8 border border-white/20 shadow-lg transform hover:shadow-xl transition-all duration-300">
             <p className="text-white font-medium text-md">
-              ✨ Atendimento exclusivo para o público feminino. Sua beleza e relaxamento em nossas mãos. ✨
+              ✨ <span className="italic">Dedicado exclusivamente às mulheres</span> — Um santuário onde beleza e serenidade florescem através do toque terapêutico ✨
             </p>
           </div>
           <div className="flex flex-col xs:flex-row gap-4 mt-2">

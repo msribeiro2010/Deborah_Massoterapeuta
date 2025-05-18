@@ -105,10 +105,10 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="max-w-xl mx-auto mt-6 p-3 rounded-lg bg-gradient-to-r from-[#8BBF9F]/10 to-[#4A7C91]/10 border border-[#8BBF9F]/30"
+            className="max-w-xl mx-auto mt-6 p-4 rounded-lg bg-gradient-to-r from-[#8BBF9F]/10 to-[#4A7C91]/10 border border-[#8BBF9F]/30 shadow-sm hover:shadow-md transition-all duration-300"
           >
             <p className="text-[#4A7C91] font-semibold">
-              ✨ Atendimento exclusivo para o público feminino. Sua beleza e relaxamento em nossas mãos. ✨
+              ✨ <span className="italic">Dedicado exclusivamente às mulheres</span> — Um santuário onde beleza e serenidade florescem através do toque terapêutico ✨
             </p>
           </motion.div>
         </div>
