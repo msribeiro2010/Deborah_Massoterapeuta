@@ -408,6 +408,7 @@ export default function Images() {
                         <SelectItem value="hero">Hero (Topo)</SelectItem>
                         <SelectItem value="about">Sobre</SelectItem>
                         <SelectItem value="gallery">Galeria</SelectItem>
+                        <SelectItem value="ambiente">Ambiente Tranquilo</SelectItem>
                         <SelectItem value="testimonials">Depoimentos</SelectItem>
                       </SelectContent>
                     </Select>
