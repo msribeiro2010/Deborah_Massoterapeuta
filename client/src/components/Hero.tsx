@@ -71,23 +71,28 @@ const Hero = () => {
           <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-white/95 max-w-md md:max-w-xl text-shadow-sm">
             Com técnicas especializadas de massoterapia, ajudo você a encontrar o relaxamento profundo e o bem-estar que seu corpo merece.
           </p>
-          <div className="flex flex-col xs:flex-row gap-4">
+          <div className="flex flex-col xs:flex-row gap-4 mt-2">
             <Button
               asChild
               size="lg"
-              className="bg-[#8BBF9F] hover:bg-[#8BBF9F]/90 text-white rounded-full font-medium transition flex items-center justify-center shadow-md"
+              className="relative overflow-hidden group bg-gradient-to-r from-[#4A7C91] to-[#8BBF9F] text-white rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105 flex items-center justify-center"
             >
-              <a href="#contact">
-                Agendar Sessão <ArrowRight className="ml-2 h-4 w-4" />
+              <a href="#contact" className="px-6 py-3 flex items-center z-10">
+                <span className="relative z-10">Agendar Sessão</span>
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8BBF9F] to-[#4A7C91] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="bg-white hover:bg-white/90 text-[#4A7C91] rounded-full font-medium transition flex items-center justify-center shadow-sm backdrop-blur-sm"
+              className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white border-white/30 hover:border-white/50 rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105 flex items-center justify-center"
             >
-              <a href="#services">Explorar Serviços</a>
+              <a href="#services" className="px-6 py-3 relative overflow-hidden group">
+                <span className="relative z-10">Explorar Serviços</span>
+                <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </a>
             </Button>
           </div>
         </motion.div>
