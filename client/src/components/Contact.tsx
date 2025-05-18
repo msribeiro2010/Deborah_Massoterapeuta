@@ -97,11 +97,11 @@ const Contact = () => {
                   <span className="text-[#8BBF9F]">📍</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#494644] mb-1">Address</h3>
+                  <h3 className="font-semibold text-[#494644] mb-1">Endereço</h3>
                   <p className="text-gray-600">
-                    123 Wellness Way, Serenity Hills
+                    Rua Salvador Lombardi Netto, 260 - Centro
                     <br />
-                    New York, NY 10001
+                    Paulínia - SP, 13140-000
                   </p>
                 </div>
               </div>
@@ -139,11 +139,11 @@ const Contact = () => {
                   <span className="text-[#8BBF9F]">🕒</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#494644] mb-1">Business Hours</h3>
+                  <h3 className="font-semibold text-[#494644] mb-1">Horário de Funcionamento</h3>
                   <p className="text-gray-600">
-                    Monday to Friday: 9am to 8pm
+                    Segunda a Sexta: 9h às 20h
                     <br />
-                    Saturday: 9am to 3pm
+                    Sábado: 9h às 15h
                   </p>
                 </div>
               </div>
