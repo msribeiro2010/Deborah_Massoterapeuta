@@ -82,13 +82,13 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <span className="text-[#8BBF9F] uppercase tracking-widest text-sm font-medium">
-              Contact
+              Contato
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
-              Book Your Session
+              Agende Sua Sessão
             </h2>
             <p className="text-gray-600 mb-6">
-              Contact us to schedule your session, ask questions, or request more information. We're available to provide the best massage therapy experience.
+              Entre em contato para agendar sua sessão, fazer perguntas ou solicitar mais informações. Estamos disponíveis para proporcionar a melhor experiência de massoterapia.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -173,7 +173,7 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-xl font-display font-semibold mb-6">Contact Form</h3>
+              <h3 className="text-xl font-display font-semibold mb-6">Formulário de Contato</h3>
 
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -182,10 +182,10 @@ const Contact = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>Nome Completo</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Your full name"
+                            placeholder="Seu nome completo"
                             className="px-4 py-3 rounded-lg border border-gray-300 focus:border-[#4A7C91]"
                             {...field}
                           />
@@ -204,7 +204,7 @@ const Contact = () => {
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="Your email"
+                            placeholder="Seu email"
                             className="px-4 py-3 rounded-lg border border-gray-300 focus:border-[#4A7C91]"
                             {...field}
                           />
@@ -219,10 +219,10 @@ const Contact = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone</FormLabel>
+                        <FormLabel>Telefone</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="(000) 000-0000"
+                            placeholder="(00) 00000-0000"
                             className="px-4 py-3 rounded-lg border border-gray-300 focus:border-[#4A7C91]"
                             {...field}
                           />
@@ -237,23 +237,23 @@ const Contact = () => {
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Service of Interest</FormLabel>
+                        <FormLabel>Serviço de Interesse</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger className="px-4 py-3 rounded-lg border border-gray-300 focus:border-[#4A7C91]">
-                              <SelectValue placeholder="Select a service" />
+                              <SelectValue placeholder="Selecione um serviço" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="relaxing">Relaxing Massage</SelectItem>
-                            <SelectItem value="therapeutic">Therapeutic Massage</SelectItem>
-                            <SelectItem value="lymphatic">Lymphatic Drainage</SelectItem>
-                            <SelectItem value="hotstone">Hot Stone Massage</SelectItem>
+                            <SelectItem value="relaxing">Massagem Relaxante</SelectItem>
+                            <SelectItem value="therapeutic">Massagem Terapêutica</SelectItem>
+                            <SelectItem value="lymphatic">Drenagem Linfática</SelectItem>
+                            <SelectItem value="hotstone">Massagem com Pedras Quentes</SelectItem>
                             <SelectItem value="shiatsu">Shiatsu</SelectItem>
-                            <SelectItem value="aromatherapy">Aromatherapy</SelectItem>
+                            <SelectItem value="aromatherapy">Aromaterapia</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -266,10 +266,10 @@ const Contact = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Mensagem</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell us more about your needs"
+                            placeholder="Conte-nos mais sobre suas necessidades"
                             className="px-4 py-3 rounded-lg border border-gray-300 focus:border-[#4A7C91] h-32 resize-none"
                             {...field}
                           />
@@ -284,7 +284,7 @@ const Contact = () => {
                     className="w-full bg-[#4A7C91] hover:bg-[#4A7C91]/90 text-white py-3 px-6 rounded-lg font-medium transition"
                     disabled={mutation.isPending}
                   >
-                    {mutation.isPending ? "Sending..." : "Send Message"}
+                    {mutation.isPending ? "Enviando..." : "Enviar Mensagem"}
                   </Button>
                 </form>
               </Form>

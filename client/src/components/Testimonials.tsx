@@ -72,7 +72,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="text-[#8BBF9F] uppercase tracking-widest text-sm font-medium"
           >
-            Experiences
+            Experiências
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-display font-bold mt-2 mb-4"
           >
-            What Our Clients Say
+            O Que Nossos Clientes Dizem
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-gray-600"
           >
-            See what our clients have to say about their experiences with our massage therapy sessions.
+            Veja o que nossos clientes têm a dizer sobre suas experiências com nossas sessões de massoterapia.
           </motion.p>
         </div>
 

@@ -101,26 +101,26 @@ export const galleryImages = [
 export const testimonials = [
   {
     id: 1,
-    name: "Maria Johnson",
-    duration: "Client for 2 years",
-    content: "Deborah's sessions transformed my quality of life. I suffered from chronic back pain for years, and after a few therapeutic massage sessions, I felt a significant improvement. Now I go monthly and recommend it to everyone."
+    name: "Maria Silva",
+    duration: "Cliente há 2 anos",
+    content: "As sessões com Deborah transformaram minha qualidade de vida. Sofri com dores crônicas nas costas por anos, e depois de algumas sessões de massagem terapêutica, senti uma melhora significativa. Agora vou mensalmente e recomendo para todos."
   },
   {
     id: 2,
-    name: "Richard Miller",
-    duration: "Client for 1 year",
-    content: "As an executive, stress is constant in my routine. The relaxing massage with aromatherapy has been essential to maintain my balance. The environment is impeccable and Deborah is extremely professional and attentive."
+    name: "Ricardo Oliveira",
+    duration: "Cliente há 1 ano",
+    content: "Como executivo, o estresse é constante na minha rotina. A massagem relaxante com aromaterapia tem sido essencial para manter meu equilíbrio. O ambiente é impecável e Deborah é extremamente profissional e atenciosa."
   },
   {
     id: 3,
-    name: "Sophia Garcia",
-    duration: "Client for 8 months",
-    content: "After my pregnancy, I started lymphatic drainage sessions with Deborah and the results were surprising. Besides reducing swelling, I felt much more energetic. The personalized care makes all the difference!"
+    name: "Sofia Pereira",
+    duration: "Cliente há 8 meses",
+    content: "Após minha gravidez, comecei sessões de drenagem linfática com Deborah e os resultados foram surpreendentes. Além de reduzir o inchaço, me senti muito mais energizada. O atendimento personalizado faz toda a diferença!"
   },
   {
     id: 4,
-    name: "Paul Anderson",
-    duration: "Client for 1.5 years",
-    content: "As an athlete, sports massage has been fundamental to my recovery and performance. Deborah perfectly understands the specific needs of my body and adapts the treatment accordingly."
+    name: "Paulo Santos",
+    duration: "Cliente há 1,5 anos",
+    content: "Como atleta, a massagem esportiva tem sido fundamental para minha recuperação e desempenho. Deborah entende perfeitamente as necessidades específicas do meu corpo e adapta o tratamento adequadamente."
   }
 ];

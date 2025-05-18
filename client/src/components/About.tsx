@@ -50,11 +50,10 @@ const About = () => {
             viewport={{ once: true }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <img
-              src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              alt="Alexandra Williams - Massage Therapist"
-              className="rounded-xl shadow-lg w-full max-w-md object-cover h-[500px]"
-            />
+            {/* Foto do profissional temporariamente removida */}
+            <div className="rounded-xl shadow-lg w-full max-w-md bg-gradient-to-r from-[#8BBF9F]/30 to-[#4A7C91]/30 h-[500px] flex items-center justify-center">
+              <p className="text-[#4A7C91] text-lg font-medium p-4 text-center">Espaço reservado para foto da profissional</p>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             className="text-[#8BBF9F] uppercase tracking-widest text-sm font-medium"
           >
-            Our Space
+            Nosso Espaço
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-display font-bold mt-2 mb-4"
           >
-            Tranquil Environment
+            Ambiente Tranquilo
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ const Gallery = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-gray-600"
           >
-            Discover our space designed to provide a complete experience of relaxation and well-being.
+            Conheça nosso espaço projetado para proporcionar uma experiência completa de relaxamento e bem-estar.
           </motion.p>
         </div>
 
