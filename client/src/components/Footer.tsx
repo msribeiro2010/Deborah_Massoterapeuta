@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-display font-semibold mb-4">Alexandra Williams</h3>
+            <h3 className="text-xl font-display font-semibold mb-4">Deborah Santalena</h3>
             <p className="text-white/80 mb-4">
               Specialist in massage therapy and integrative practices, dedicated to promoting well-being and balance through therapeutic touch.
             </p>
@@ -126,7 +126,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/70">
-          <p>&copy; {new Date().getFullYear()} Alexandra Williams Massage Therapy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Deborah Santalena Massage Therapy. All rights reserved.</p>
         </div>
       </div>
     </footer>

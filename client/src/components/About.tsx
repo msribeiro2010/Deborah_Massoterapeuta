@@ -20,7 +20,7 @@ const About = () => {
               About Me
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
-              Alexandra Williams
+              Deborah Santalena
             </h2>
             <p className="text-gray-600 mb-4">
               With over 10 years of experience, I specialize in various massage therapy techniques, trained at the American Institute of Therapeutic Studies with international certifications.

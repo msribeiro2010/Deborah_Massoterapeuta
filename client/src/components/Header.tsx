@@ -49,7 +49,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="text-2xl md:text-3xl font-display font-bold text-[#4A7C91]">
-          Alexandra Williams
+          Deborah Santalena
           <span className="block text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
             Massage Therapy & Wellness
           </span>

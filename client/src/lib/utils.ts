@@ -103,24 +103,24 @@ export const testimonials = [
     id: 1,
     name: "Maria Johnson",
     duration: "Client for 2 years",
-    content: "Alexandra's sessions transformed my quality of life. I suffered from chronic back pain for years, and after a few therapeutic massage sessions, I felt a significant improvement. Now I go monthly and recommend it to everyone."
+    content: "Deborah's sessions transformed my quality of life. I suffered from chronic back pain for years, and after a few therapeutic massage sessions, I felt a significant improvement. Now I go monthly and recommend it to everyone."
   },
   {
     id: 2,
     name: "Richard Miller",
     duration: "Client for 1 year",
-    content: "As an executive, stress is constant in my routine. The relaxing massage with aromatherapy has been essential to maintain my balance. The environment is impeccable and Alexandra is extremely professional and attentive."
+    content: "As an executive, stress is constant in my routine. The relaxing massage with aromatherapy has been essential to maintain my balance. The environment is impeccable and Deborah is extremely professional and attentive."
   },
   {
     id: 3,
     name: "Sophia Garcia",
     duration: "Client for 8 months",
-    content: "After my pregnancy, I started lymphatic drainage sessions with Alexandra and the results were surprising. Besides reducing swelling, I felt much more energetic. The personalized care makes all the difference!"
+    content: "After my pregnancy, I started lymphatic drainage sessions with Deborah and the results were surprising. Besides reducing swelling, I felt much more energetic. The personalized care makes all the difference!"
   },
   {
     id: 4,
     name: "Paul Anderson",
     duration: "Client for 1.5 years",
-    content: "As an athlete, sports massage has been fundamental to my recovery and performance. Alexandra perfectly understands the specific needs of my body and adapts the treatment accordingly."
+    content: "As an athlete, sports massage has been fundamental to my recovery and performance. Deborah perfectly understands the specific needs of my body and adapts the treatment accordingly."
   }
 ];

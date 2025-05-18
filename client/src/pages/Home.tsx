@@ -14,12 +14,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Alexandra Williams | Massage Therapy & Wellness</title>
-        <meta name="description" content="Experience professional massage therapy services with Alexandra Williams. Relaxing, therapeutic, and specialized massage treatments to restore balance and promote wellness." />
-        <meta property="og:title" content="Alexandra Williams | Massage Therapy & Wellness" />
+        <title>Deborah Santalena | Massage Therapy & Wellness</title>
+        <meta name="description" content="Experience professional massage therapy services with Deborah Santalena. Relaxing, therapeutic, and specialized massage treatments to restore balance and promote wellness." />
+        <meta property="og:title" content="Deborah Santalena | Massage Therapy & Wellness" />
         <meta property="og:description" content="Professional massage therapy services including relaxing, therapeutic, and specialized treatments for your wellness journey." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://alexandrawilliams.com" />
+        <meta property="og:url" content="https://deborahsantalena.com" />
       </Helmet>
       
       <div className="flex flex-col min-h-screen">
