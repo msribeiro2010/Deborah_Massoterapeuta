@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import LeafLogo from "./LeafLogo";
+import ThreeLeafLogo from "./ThreeLeafLogo";
 
 const navItems = [
   { name: "Início", href: "#home" },
@@ -51,7 +51,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-3 group">
           <div className="transform group-hover:scale-110 transition-transform duration-300">
-            <LeafLogo className="w-10 h-10 sm:w-12 sm:h-12" />
+            <ThreeLeafLogo className="w-10 h-10 sm:w-12 sm:h-12" />
           </div>
           <div>
             <span className="block text-xl sm:text-2xl md:text-3xl font-display font-bold text-[#4A7C91] leading-tight">
