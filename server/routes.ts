@@ -38,10 +38,7 @@ const isAdmin = (req: Request, res: Response, next: NextFunction) => {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Servir arquivos estáticos da pasta uploads
-  app.use('/uploads', (req, res, next) => {
-    const staticMiddleware = require('express').static(path.join(process.cwd(), 'uploads'));
-    staticMiddleware(req, res, next);
-  });
+  app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
   
   // Configurar middleware de sessão
   app.use(
