@@ -14,10 +14,10 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Deborah Santalena | Massage Therapy & Wellness</title>
-        <meta name="description" content="Experience professional massage therapy services with Deborah Santalena. Relaxing, therapeutic, and specialized massage treatments to restore balance and promote wellness." />
-        <meta property="og:title" content="Deborah Santalena | Massage Therapy & Wellness" />
-        <meta property="og:description" content="Professional massage therapy services including relaxing, therapeutic, and specialized treatments for your wellness journey." />
+        <title>Deborah Santalena | Massoterapia & Bem-estar</title>
+        <meta name="description" content="Experimente serviços profissionais de massoterapia com Deborah Santalena. Massagens relaxantes, terapêuticas e especializadas para restaurar o equilíbrio e promover o bem-estar." />
+        <meta property="og:title" content="Deborah Santalena | Massoterapia & Bem-estar" />
+        <meta property="og:description" content="Serviços profissionais de massoterapia incluindo tratamentos relaxantes, terapêuticos e especializados para sua jornada de bem-estar." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://deborahsantalena.com" />
       </Helmet>

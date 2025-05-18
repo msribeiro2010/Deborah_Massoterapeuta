@@ -17,19 +17,19 @@ const About = () => {
             className="order-2 lg:order-1"
           >
             <span className="text-[#8BBF9F] uppercase tracking-widest text-sm font-medium">
-              About Me
+              Sobre Mim
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
               Deborah Santalena
             </h2>
             <p className="text-gray-600 mb-4">
-              With over 10 years of experience, I specialize in various massage therapy techniques, trained at the American Institute of Therapeutic Studies with international certifications.
+              Com mais de 10 anos de experiência, sou especializada em várias técnicas de massoterapia, formada pelo Instituto Americano de Estudos Terapêuticos com certificações internacionais.
             </p>
             <p className="text-gray-600 mb-4">
-              My approach combines knowledge of anatomy, physiology, and integrative practices, aiming not just for symptom relief but complete balance between body and mind.
+              Minha abordagem combina conhecimentos de anatomia, fisiologia e práticas integrativas, visando não apenas o alívio dos sintomas, mas o equilíbrio completo entre corpo e mente.
             </p>
             <p className="text-gray-600 mb-6">
-              I believe in the power of therapeutic touch as a tool for transformation and wellness, and I work with each client in a personalized way, understanding their specific needs.
+              Acredito no poder do toque terapêutico como ferramenta de transformação e bem-estar, e trabalho com cada cliente de forma personalizada, compreendendo suas necessidades específicas.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -38,7 +38,7 @@ const About = () => {
                 size="lg"
                 className="bg-[#8BBF9F] hover:bg-[#8BBF9F]/90 text-white py-3 px-8 rounded-full font-medium transition flex items-center justify-center max-w-[200px]"
               >
-                <a href="#contact">Book Now</a>
+                <a href="#contact">Agende Agora</a>
               </Button>
             </div>
           </motion.div>

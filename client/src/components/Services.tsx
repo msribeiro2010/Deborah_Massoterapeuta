@@ -70,7 +70,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-[#8BBF9F] uppercase tracking-widest text-sm font-medium"
           >
-            Our Services
+            Nossos Serviços
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -79,7 +79,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-display font-bold mt-2 mb-4"
           >
-            Therapeutic Treatments
+            Tratamentos Terapêuticos
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-gray-600"
           >
-            We offer various massage therapy techniques to meet your specific needs, providing tension relief and promoting holistic well-being.
+            Oferecemos diversas técnicas de massoterapia para atender às suas necessidades específicas, proporcionando alívio de tensão e promovendo bem-estar integral.
           </motion.p>
         </div>
 

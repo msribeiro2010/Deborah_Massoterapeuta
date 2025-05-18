@@ -43,7 +43,7 @@ const Benefits = () => {
             viewport={{ once: true }}
             className="text-[#EBFAEF] uppercase tracking-widest text-sm font-medium"
           >
-            Why Choose Us
+            Por Que Nos Escolher
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ const Benefits = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-display font-bold mt-2 mb-4"
           >
-            Benefits of Massage Therapy
+            Benefícios da Massoterapia
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ const Benefits = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-white/80"
           >
-            Massage therapy goes beyond relaxation, bringing several benefits to your physical and mental health, improving your quality of life.
+            A massoterapia vai além do relaxamento, trazendo diversos benefícios para sua saúde física e mental, melhorando sua qualidade de vida.
           </motion.p>
         </div>
 

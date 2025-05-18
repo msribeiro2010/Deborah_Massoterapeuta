@@ -27,10 +27,10 @@ const Hero = () => {
           className="max-w-2xl"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-            Restore your balance through therapeutic touch
+            Restaure seu equilíbrio através do toque terapêutico
           </h1>
           <p className="text-lg md:text-xl mb-8 text-white/90">
-            With specialized massage therapy techniques, I help you find the deep relaxation and well-being your body deserves.
+            Com técnicas especializadas de massoterapia, ajudo você a encontrar o relaxamento profundo e o bem-estar que seu corpo merece.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
@@ -39,7 +39,7 @@ const Hero = () => {
               className="bg-[#8BBF9F] hover:bg-[#8BBF9F]/90 text-white rounded-full font-medium transition flex items-center justify-center"
             >
               <a href="#contact">
-                Book a Session <ArrowRight className="ml-2 h-4 w-4" />
+                Agendar Sessão <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button
@@ -48,7 +48,7 @@ const Hero = () => {
               size="lg"
               className="bg-white hover:bg-white/90 text-[#4A7C91] rounded-full font-medium transition flex items-center justify-center"
             >
-              <a href="#services">Explore Services</a>
+              <a href="#services">Explorar Serviços</a>
             </Button>
           </div>
         </motion.div>

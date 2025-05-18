@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "Início", href: "#home" },
+  { name: "Serviços", href: "#services" },
+  { name: "Sobre", href: "#about" },
+  { name: "Depoimentos", href: "#testimonials" },
+  { name: "Contato", href: "#contact" },
 ];
 
 const Header = () => {
@@ -51,7 +51,7 @@ const Header = () => {
         <a href="#home" className="text-2xl md:text-3xl font-display font-bold text-[#4A7C91]">
           Deborah Santalena
           <span className="block text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
-            Massage Therapy & Wellness
+            Massoterapia & Bem-estar
           </span>
         </a>
 
