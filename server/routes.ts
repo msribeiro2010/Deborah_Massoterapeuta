@@ -1,5 +1,6 @@
-import type { Express, Request, Response, NextFunction } from "express";
+import express, { type Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
+import path from "path";
 import { storage } from "./storage";
 import { 
   insertContactSchema, 
@@ -10,6 +11,7 @@ import {
 import { z } from "zod";
 import session from "express-session";
 import pgSession from "connect-pg-simple";
+import { upload, getImageUrl } from "./upload";
 
 // Definir tipagem para a sessão
 declare module 'express-session' {
@@ -35,6 +37,12 @@ const isAdmin = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Servir arquivos estáticos da pasta uploads
+  app.use('/uploads', (req, res, next) => {
+    const staticMiddleware = require('express').static(path.join(process.cwd(), 'uploads'));
+    staticMiddleware(req, res, next);
+  });
+  
   // Configurar middleware de sessão
   app.use(
     session({
@@ -346,6 +354,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error fetching image:", error);
       res.status(500).json({
         message: "Ocorreu um erro ao buscar a imagem."
+      });
+    }
+  });
+  
+  // Rota para upload de imagem
+  app.post("/api/admin/upload-image", isAdmin, upload.single('image'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({
+          message: "Nenhum arquivo enviado ou formato inválido."
+        });
+      }
+      
+      // Gera a URL da imagem
+      const imageUrl = getImageUrl(req.file.filename);
+      
+      res.status(201).json({
+        message: "Imagem enviada com sucesso",
+        imageUrl: imageUrl,
+        filename: req.file.filename
+      });
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      res.status(500).json({
+        message: "Ocorreu um erro ao enviar a imagem."
       });
     }
   });
