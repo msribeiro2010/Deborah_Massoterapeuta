@@ -101,25 +101,25 @@ export const galleryImages = [
 export const testimonials = [
   {
     id: 1,
-    name: "Maria Silva",
+    name: "Fernanda",
     duration: "Cliente há 2 anos",
     content: "As sessões com Deborah transformaram minha qualidade de vida. Sofri com dores crônicas nas costas por anos, e depois de algumas sessões de massagem terapêutica, senti uma melhora significativa. Agora vou mensalmente e recomendo para todos."
   },
   {
     id: 2,
-    name: "Ricardo Oliveira",
+    name: "Marcelo",
     duration: "Cliente há 1 ano",
     content: "Como executivo, o estresse é constante na minha rotina. A massagem relaxante com aromaterapia tem sido essencial para manter meu equilíbrio. O ambiente é impecável e Deborah é extremamente profissional e atenciosa."
   },
   {
     id: 3,
-    name: "Sofia Pereira",
+    name: "Gabi",
     duration: "Cliente há 8 meses",
     content: "Após minha gravidez, comecei sessões de drenagem linfática com Deborah e os resultados foram surpreendentes. Além de reduzir o inchaço, me senti muito mais energizada. O atendimento personalizado faz toda a diferença!"
   },
   {
     id: 4,
-    name: "Paulo Santos",
+    name: "Clara",
     duration: "Cliente há 1,5 anos",
     content: "Como atleta, a massagem esportiva tem sido fundamental para minha recuperação e desempenho. Deborah entende perfeitamente as necessidades específicas do meu corpo e adapta o tratamento adequadamente."
   }
