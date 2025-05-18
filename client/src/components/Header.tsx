@@ -43,14 +43,14 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed w-full bg-white/90 shadow-sm backdrop-blur-sm z-50 transition-all duration-300",
-        scrolled ? "py-2" : "py-4"
+        "fixed w-full bg-white/95 shadow-sm backdrop-blur-sm z-50 transition-all duration-300",
+        scrolled ? "py-2" : "py-3 md:py-4"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-2xl md:text-3xl font-display font-bold text-[#4A7C91]">
+        <a href="#home" className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-[#4A7C91] leading-tight">
           Deborah Santalena
-          <span className="block text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
+          <span className="block text-xs sm:text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
             Massoterapia & Bem-estar
           </span>
         </a>

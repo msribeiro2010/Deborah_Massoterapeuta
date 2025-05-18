@@ -21,22 +21,22 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-[#F9F4EE] p-8 rounded-xl shadow-sm hover:shadow-md transition group"
+      className="bg-[#F9F4EE] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition group"
     >
-      <div className="w-16 h-16 rounded-full bg-[#EBFAEF] flex items-center justify-center mb-6 group-hover:bg-[#8BBF9F] transition">
-        <IconComponent className="text-[#8BBF9F] group-hover:text-white text-2xl transition" size={24} />
+      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#EBFAEF] flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#8BBF9F] transition">
+        <IconComponent className="text-[#8BBF9F] group-hover:text-white text-xl sm:text-2xl transition" size={22} />
       </div>
-      <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
-      <p className="text-gray-600 mb-4">{service.description}</p>
+      <h3 className="text-lg sm:text-xl font-display font-semibold mb-2 sm:mb-3">{service.title}</h3>
+      <p className="text-gray-600 mb-4 text-sm sm:text-base">{service.description}</p>
       <div className="flex justify-between items-center">
-        <span className="text-sm text-[#4A7C91] font-medium">
+        <span className="text-xs sm:text-sm text-[#4A7C91] font-medium">
           {service.duration} | {service.price}
         </span>
         <a
           href="#contact"
-          className="text-[#8BBF9F] hover:text-[#4A7C91] transition font-medium flex items-center"
+          className="text-[#8BBF9F] hover:text-[#4A7C91] transition font-medium flex items-center text-sm sm:text-base"
         >
-          Book <ArrowRightIcon className="ml-1 h-3 w-3" />
+          Agendar <ArrowRightIcon className="ml-1 h-3 w-3" />
         </a>
       </div>
     </motion.div>
@@ -92,7 +92,7 @@ const Services = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {serviceItems.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}

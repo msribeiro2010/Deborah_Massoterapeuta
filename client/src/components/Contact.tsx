@@ -74,7 +74,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-[#F9F4EE] to-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -180,7 +180,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-8 rounded-xl shadow-md">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md">
               <h3 className="text-xl font-display font-semibold mb-6">Formulário de Contato</h3>
 
               <Form {...form}>
