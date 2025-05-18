@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#services" className="text-white/80 hover:text-white transition">
-                  Aromaterapia
+                  Massagem Miofascial
                 </a>
               </li>
             </ul>

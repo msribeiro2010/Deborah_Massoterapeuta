@@ -48,8 +48,8 @@ export const serviceItems = [
   },
   {
     id: 6,
-    title: "Aromaterapia",
-    description: "Combina massagem com óleos essenciais cuidadosamente selecionados, potencializando os benefícios terapêuticos para o corpo e a mente.",
+    title: "Massagem Miofascial",
+    description: "Técnica focada na liberação da fáscia muscular, aliviando dores crônicas, melhorando a mobilidade e restaurando o equilíbrio corporal.",
     icon: "leaf",
     duration: "60 min",
     price: "R$150",

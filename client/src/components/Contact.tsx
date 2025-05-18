@@ -261,7 +261,7 @@ const Contact = () => {
                             <SelectItem value="lymphatic">Drenagem Linfática</SelectItem>
                             <SelectItem value="hotstone">Massagem com Pedras Quentes</SelectItem>
                             <SelectItem value="shiatsu">Shiatsu</SelectItem>
-                            <SelectItem value="aromatherapy">Aromaterapia</SelectItem>
+                            <SelectItem value="myofascial">Massagem Miofascial</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
