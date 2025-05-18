@@ -1,8 +1,44 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+
+interface HeroImage {
+  id: number;
+  imageUrl: string;
+  title: string | null;
+  description: string | null;
+}
 
 const Hero = () => {
+  const [heroImage, setHeroImage] = useState<HeroImage | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadHeroImage() {
+      try {
+        const response = await fetch('/api/images/hero');
+        if (response.ok) {
+          const images = await response.json();
+          if (images && images.length > 0) {
+            setHeroImage(images[0]);
+          }
+        }
+      } catch (error) {
+        console.error("Erro ao carregar imagem do hero:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    loadHeroImage();
+  }, []);
+
+  // Certifica que a URL tem o formato correto para exibição
+  const backgroundImageUrl = heroImage?.imageUrl 
+    ? (heroImage.imageUrl.startsWith('http') ? heroImage.imageUrl : `${window.location.origin}${heroImage.imageUrl}`)
+    : "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
+
   return (
     <section
       id="home"
@@ -12,8 +48,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')",
+          backgroundImage: `url('${backgroundImageUrl}')`,
           backgroundPosition: "center 30%"
         }}
       >

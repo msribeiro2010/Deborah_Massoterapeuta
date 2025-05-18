@@ -56,6 +56,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // ----- Rotas públicas -----
   
+  // Rota para obter imagens por seção
+  app.get("/api/images/:section", async (req, res) => {
+    try {
+      const { section } = req.params;
+      const images = await storage.getSiteImagesBySection(section);
+      res.status(200).json(images);
+    } catch (error) {
+      console.error("Error fetching section images:", error);
+      res.status(500).json({
+        message: "Ocorreu um erro ao buscar as imagens da seção."
+      });
+    }
+  });
+  
   // Handle contact form submissions
   app.post("/api/contact", async (req, res) => {
     try {
