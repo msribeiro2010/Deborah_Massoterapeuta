@@ -50,9 +50,12 @@ const About = () => {
             viewport={{ once: true }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            {/* Foto do profissional temporariamente removida */}
-            <div className="rounded-xl shadow-lg w-full max-w-md bg-gradient-to-r from-[#8BBF9F]/30 to-[#4A7C91]/30 h-[500px] flex items-center justify-center">
-              <p className="text-[#4A7C91] text-lg font-medium p-4 text-center">Espaço reservado para foto da profissional</p>
+            <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-md">
+              <img 
+                src="/uploads/images/image-1747601009362-165017762.HEIC" 
+                alt="Deborah Santalena"
+                className="w-full h-[500px] object-cover object-center transition-transform duration-500 hover:scale-105"
+              />
             </div>
           </motion.div>
         </div>
