@@ -46,13 +46,16 @@ const Hero = () => {
     >
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 transition-all duration-700 ease-in-out"
         style={{
           backgroundImage: `url('${backgroundImageUrl}')`,
-          backgroundPosition: "center 30%"
+          backgroundPosition: "center 30%",
+          backgroundSize: "cover",
+          imageRendering: "auto",
+          filter: "brightness(1.05) contrast(1.05) saturate(1.05)"
         }}
       >
-        <div className="absolute inset-0 bg-[#4A7C91]/50 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4A7C91]/70 via-[#4A7C91]/50 to-[#4A7C91]/40 backdrop-blur-[1px]"></div>
       </div>
 
       <div className="container mx-auto px-6 md:px-4 relative z-10 text-white pt-12 md:pt-0">
