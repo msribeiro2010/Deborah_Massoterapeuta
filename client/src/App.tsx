@@ -18,15 +18,22 @@ const AdminMessages = lazy(() => import("@/pages/admin/Messages"));
 // Componente para proteger rotas de administração
 function AdminRoute({ component: Component, ...rest }: { component: React.ComponentType<any>, path: string }) {
   const { isAuthenticated, isLoading } = useAuth();
-  const [location, setLocation] = useLocation();
+  const [location, navigate] = useLocation();
 
   if (isLoading) {
     return <div className="flex items-center justify-center min-h-screen">Carregando...</div>;
   }
 
+  // Usamos um efeito para redirecionar de forma segura
+  React.useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      navigate("/admin/login");
+    }
+  }, [isLoading, isAuthenticated, navigate]);
+
+  // Renderiza o componente apenas se estiver autenticado
   if (!isAuthenticated) {
-    setLocation("/admin/login");
-    return null;
+    return <div className="flex items-center justify-center min-h-screen">Redirecionando...</div>;
   }
 
   return <Component {...rest} />;
