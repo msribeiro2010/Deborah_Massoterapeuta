@@ -90,6 +90,15 @@ const Services = () => {
           >
             Oferecemos diversas técnicas de massoterapia para atender às suas necessidades específicas, proporcionando alívio de tensão e promovendo bem-estar integral.
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-gray-600 mt-2 font-medium text-[#4A7C91]"
+          >
+            Todas as modalidades podem ser associadas com aromaterapia e ventosaterapia.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
