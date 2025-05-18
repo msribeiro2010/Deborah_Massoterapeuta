@@ -77,7 +77,7 @@ const Gallery = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {imagesToDisplay.map((image, index) => (
             <motion.div
               key={index}
@@ -85,12 +85,12 @@ const Gallery = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group"
+              className="relative group h-80 flex items-center justify-center bg-white rounded-xl shadow-sm overflow-hidden"
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="rounded-xl shadow-sm hover:shadow-md transition object-cover h-64 w-full"
+                className="max-h-full max-w-full object-contain p-3"
               />
               {image.description && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-3 rounded-b-xl opacity-0 group-hover:opacity-100 transition-opacity">
