@@ -108,7 +108,7 @@ const Services = () => {
             className="max-w-xl mx-auto mt-6 p-4 rounded-lg bg-gradient-to-r from-[#8BBF9F]/10 to-[#4A7C91]/10 border border-[#8BBF9F]/30 shadow-sm hover:shadow-md transition-all duration-300"
           >
             <p className="text-[#4A7C91] font-semibold">
-              ✨ <span className="italic">Dedicado exclusivamente às mulheres</span> — Um santuário onde beleza e serenidade florescem através do toque terapêutico ✨
+              ✨ <span className="italic">Dedicado exclusivamente às mulheres</span> — Um espaço onde beleza e serenidade florescem através do toque terapêutico ✨
             </p>
           </motion.div>
         </div>
