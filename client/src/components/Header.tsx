@@ -49,13 +49,21 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center group">
+        <a href="#home" className="flex items-center gap-3 group">
           <div className="transform group-hover:scale-105 transition-transform duration-300">
             <img 
               src={logoImage} 
               alt="Deborah Santalena Logo" 
               className="h-16 sm:h-20 md:h-24" 
             />
+          </div>
+          <div>
+            <span className="block text-xl sm:text-2xl md:text-3xl font-display font-bold text-[#4A7C91] leading-tight">
+              Deborah Santalena
+            </span>
+            <span className="block text-xs sm:text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
+              Massoterapia & Bem-estar
+            </span>
           </div>
         </a>
 
