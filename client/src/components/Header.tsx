@@ -57,7 +57,14 @@ const Header = () => {
               className="h-20 sm:h-24 md:h-28" 
             />
           </div>
-
+          <div>
+            <span className="block text-xl sm:text-2xl md:text-3xl font-display font-bold text-[#4A7C91] leading-tight">
+              Deborah Santalena
+            </span>
+            <span className="block text-xs sm:text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
+              Massoterapia & Bem-estar
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
