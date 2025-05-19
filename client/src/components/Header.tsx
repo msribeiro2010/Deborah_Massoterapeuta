@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import logoImage from "../assets/logo.png";
+import logoImage from "../assets/new-logo.png";
 
 const navItems = [
   { name: "Início", href: "#home" },
@@ -54,17 +54,10 @@ const Header = () => {
             <img 
               src={logoImage} 
               alt="Deborah Santalena Logo" 
-              className="h-16 sm:h-20 md:h-24" 
+              className="h-20 sm:h-24 md:h-28" 
             />
           </div>
-          <div>
-            <span className="block text-xl sm:text-2xl md:text-3xl font-display font-bold text-[#4A7C91] leading-tight">
-              Deborah Santalena
-            </span>
-            <span className="block text-xs sm:text-sm font-sans text-[#8BBF9F] tracking-wider font-light">
-              Massoterapia & Bem-estar
-            </span>
-          </div>
+
         </a>
 
         {/* Desktop Navigation */}
