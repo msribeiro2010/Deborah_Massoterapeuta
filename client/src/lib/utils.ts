@@ -48,7 +48,7 @@ export const serviceItems = [
   },
   {
     id: 6,
-    title: "Massagem Miofascial",
+    title: "Liberação Miofascial",
     description: "Técnica focada na liberação da fáscia muscular, aliviando dores crônicas, melhorando a mobilidade e restaurando o equilíbrio corporal.",
     icon: "leaf",
     duration: "90 min",
