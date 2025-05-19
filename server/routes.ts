@@ -87,6 +87,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store contact message
       const message = await storage.createContactMessage(validatedData);
       
+      // Try to send email notification to deborah_santalena@hotmail.com
+      try {
+        // Import sendContactEmail function
+        const { sendContactEmail } = await import('./email');
+        
+        // Send email asynchronously (don't wait for result)
+        sendContactEmail(validatedData).then(success => {
+          if (!success) {
+            console.error('Falha ao enviar email de notificação, mas mensagem foi salva no banco de dados');
+          }
+        });
+      } catch (emailError) {
+        console.error('Erro ao enviar email de notificação:', emailError);
+        // Continue execution - we still want to return success response
+        // The message is stored in DB even if email fails
+      }
+      
       // Return success response
       res.status(201).json({
         message: "Mensagem recebida com sucesso",

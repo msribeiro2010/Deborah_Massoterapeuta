@@ -53,15 +53,15 @@ const Contact = () => {
     },
     onSuccess: () => {
       toast({
-        title: "Message sent",
-        description: "We'll get back to you as soon as possible.",
+        title: "Mensagem enviada",
+        description: "Sua mensagem foi enviada para deborah_santalena@hotmail.com. Entraremos em contato em breve.",
       });
       form.reset();
     },
     onError: (error) => {
       toast({
-        title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
+        title: "Erro",
+        description: error.message || "Ocorreu um erro. Por favor, tente novamente.",
         variant: "destructive",
       });
     },
