@@ -1,7 +1,36 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+
+interface AboutImage {
+  id: number;
+  imageUrl: string;
+  title: string | null;
+  description: string | null;
+}
 
 const About = () => {
+  const [aboutImage, setAboutImage] = useState<AboutImage | null>(null);
+
+  // Buscar imagens da seção "about"
+  const { data: aboutImages } = useQuery({
+    queryKey: ["/api/images/about"],
+    queryFn: async () => {
+      const response = await fetch("/api/images/about");
+      if (!response.ok) throw new Error("Falha ao carregar imagem");
+      return response.json();
+    },
+  });
+
+  useEffect(() => {
+    async function loadAboutImage() {
+      if (aboutImages && aboutImages.length > 0) {
+        setAboutImage(aboutImages[0]); // Usar a primeira imagem disponível
+      }
+    }
+    loadAboutImage();
+  }, [aboutImages]);
   return (
     <section
       id="about"
@@ -50,8 +79,18 @@ const About = () => {
             viewport={{ once: true }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="rounded-xl shadow-lg w-full max-w-md bg-gradient-to-r from-[#8BBF9F]/30 to-[#4A7C91]/30 h-[500px] flex items-center justify-center">
-              <p className="text-[#4A7C91] text-lg font-medium p-4 text-center">Espaço reservado para foto da profissional</p>
+            <div className="rounded-xl shadow-lg w-full max-w-md overflow-hidden">
+              {aboutImage ? (
+                <img
+                  src={aboutImage.imageUrl}
+                  alt={aboutImage.title || "Deborah Santalena"}
+                  className="w-full h-[500px] object-cover"
+                />
+              ) : (
+                <div className="bg-gradient-to-r from-[#8BBF9F]/30 to-[#4A7C91]/30 h-[500px] flex items-center justify-center">
+                  <p className="text-[#4A7C91] text-lg font-medium p-4 text-center">Espaço reservado para foto da profissional</p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
