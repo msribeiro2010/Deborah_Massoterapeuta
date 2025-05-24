@@ -48,8 +48,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       resave: false,
       saveUninitialized: false,
       cookie: {
-        secure: process.env.NODE_ENV === "production",
+        secure: false, // Permitir cookies não-seguros para compatibilidade
+        httpOnly: true, // Protege contra XSS
         maxAge: 24 * 60 * 60 * 1000, // 1 dia
+        sameSite: 'lax', // Permite cookies em requisições do mesmo site
       },
     })
   );
