@@ -81,15 +81,14 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
+        <button
+          className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors z-50 relative"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Menu"
+          type="button"
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
+          {mobileMenuOpen ? <X className="h-6 w-6 text-[#494644]" /> : <Menu className="h-6 w-6 text-[#494644]" />}
+        </button>
       </div>
 
       {/* Mobile Navigation */}
@@ -100,14 +99,15 @@ const Header = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-gray-100 shadow-md overflow-hidden"
+            className="md:hidden bg-white border-t border-gray-100 shadow-lg overflow-hidden relative z-40"
           >
-            <div className="container mx-auto px-4 py-2 flex flex-col space-y-3">
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="py-2 text-[#494644] hover:text-[#4A7C91] font-medium transition text-left"
+                  className="py-3 px-2 text-[#494644] hover:text-[#4A7C91] hover:bg-gray-50 font-medium transition text-left rounded-md touch-manipulation"
+                  type="button"
                 >
                   {item.name}
                 </button>
