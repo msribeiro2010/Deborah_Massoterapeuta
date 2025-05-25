@@ -31,14 +31,23 @@ const Header = () => {
   };
 
   const scrollToSection = (href: string) => {
+    console.log('Clicou em:', href); // Debug
     closeMobileMenu();
-    const element = document.querySelector(href);
-    if (element) {
-      window.scrollTo({
-        top: element.getBoundingClientRect().top + window.scrollY - 100,
-        behavior: "smooth",
-      });
-    }
+    
+    // Aguardar um pouco para o menu fechar antes de fazer scroll
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      console.log('Elemento encontrado:', element); // Debug
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - 100;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -105,8 +114,12 @@ const Header = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="py-3 px-2 text-[#494644] hover:text-[#4A7C91] hover:bg-gray-50 font-medium transition text-left rounded-md touch-manipulation"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    scrollToSection(item.href);
+                  }}
+                  className="py-4 px-4 text-[#494644] hover:text-[#4A7C91] hover:bg-gray-50 font-medium transition text-left rounded-md touch-manipulation active:bg-gray-100 min-h-[48px] w-full"
                   type="button"
                 >
                   {item.name}
