@@ -160,13 +160,6 @@ const Contact = () => {
                 <InstagramIcon size={18} />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-[#EBFAEF] hover:bg-[#8BBF9F] text-[#8BBF9F] hover:text-white flex items-center justify-center transition"
-                aria-label="Facebook"
-              >
-                <FacebookIcon size={18} />
-              </a>
-              <a
                 href="https://wa.me/5519971333256"
                 target="_blank"
                 rel="noopener noreferrer"
