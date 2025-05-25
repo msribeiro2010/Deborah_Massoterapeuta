@@ -121,6 +121,9 @@ const Contact = () => {
                     (19) 97133-3256
                     <span className="ml-2 text-[#25D366] text-sm">WhatsApp</span>
                   </a>
+                  <p className="text-sm text-[#4A7C91] font-medium mt-1">
+                    Atendimento somente mulheres
+                  </p>
                 </div>
               </div>
 
