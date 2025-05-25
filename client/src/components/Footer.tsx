@@ -12,9 +12,11 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://instagram.com/deborah.santalena"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white transition"
-                aria-label="Instagram"
+                aria-label="Instagram @deborah.santalena"
               >
                 <Instagram size={20} />
               </a>
@@ -26,7 +28,9 @@ const Footer = () => {
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href="https://wa.me/5519971333256"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/80 hover:text-white transition"
                 aria-label="WhatsApp"
               >

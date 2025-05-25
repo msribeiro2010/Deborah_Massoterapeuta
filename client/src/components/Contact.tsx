@@ -151,9 +151,11 @@ const Contact = () => {
 
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://instagram.com/deborah.santalena"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#EBFAEF] hover:bg-[#8BBF9F] text-[#8BBF9F] hover:text-white flex items-center justify-center transition"
-                aria-label="Instagram"
+                aria-label="Instagram @deborah.santalena"
               >
                 <InstagramIcon size={18} />
               </a>
@@ -165,7 +167,9 @@ const Contact = () => {
                 <FacebookIcon size={18} />
               </a>
               <a
-                href="#"
+                href="https://wa.me/5519971333256"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#EBFAEF] hover:bg-[#8BBF9F] text-[#8BBF9F] hover:text-white flex items-center justify-center transition"
                 aria-label="WhatsApp"
               >
