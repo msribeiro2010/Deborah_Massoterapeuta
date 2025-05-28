@@ -2,6 +2,7 @@ import express, { type Express, Request, Response, NextFunction } from "express"
 import { createServer, type Server } from "http";
 import path from "path";
 import { storage } from "./storage";
+import { memoryStorage } from "./memoryStorage";
 import { 
   insertContactSchema, 
   loginSchema, 
@@ -63,14 +64,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      if (section === "all") {
-        // Retorna todas as imagens
-        const images = await storage.getSiteImages();
-        res.status(200).json(images);
-      } else {
-        // Retorna imagens por seção específica
-        const images = await storage.getSiteImagesBySection(section);
-        res.status(200).json(images);
+      try {
+        // Tentar usar o banco de dados principal primeiro
+        if (section === "all") {
+          const images = await storage.getSiteImages();
+          res.status(200).json(images);
+        } else {
+          const images = await storage.getSiteImagesBySection(section);
+          res.status(200).json(images);
+        }
+      } catch (dbError) {
+        // Se o banco principal falhar, usar armazenamento temporário
+        console.log("Usando armazenamento temporário para imagens");
+        if (section === "all") {
+          const images = await memoryStorage.getSiteImages();
+          res.status(200).json(images);
+        } else {
+          const images = await memoryStorage.getSiteImagesBySection(section);
+          res.status(200).json(images);
+        }
       }
     } catch (error) {
       console.error("Error fetching section images:", error);
@@ -174,9 +186,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Tentar verificar credenciais no banco
+      // Tentar verificar credenciais no banco temporário
       try {
-        const admin = await storage.verifyAdminPassword(
+        const admin = await memoryStorage.verifyAdminPassword(
           loginData.username, 
           loginData.password
         );
@@ -193,7 +205,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           });
         }
       } catch (dbError) {
-        console.log("Erro de banco, usando login temporário");
+        console.log("Erro de banco temporário");
       }
       
       return res.status(401).json({
