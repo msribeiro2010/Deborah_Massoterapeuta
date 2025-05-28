@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Home, LogOut, Settings, Images, MessageSquare, Briefcase } from "lucide-react";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -15,22 +16,40 @@ export function AdminLayout({ children, title }: AdminLayoutProps) {
             <h1 className="text-xl font-bold">Painel Administrativo</h1>
             <nav className="flex items-center space-x-2">
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/admin/dashboard">Dashboard</Link>
+                <Link href="/admin/dashboard" className="flex items-center gap-2">
+                  <Settings className="h-4 w-4" />
+                  Dashboard
+                </Link>
               </Button>
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/admin/services">Serviços</Link>
+                <Link href="/admin/services" className="flex items-center gap-2">
+                  <Briefcase className="h-4 w-4" />
+                  Serviços
+                </Link>
               </Button>
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/admin/images">Imagens</Link>
+                <Link href="/admin/images" className="flex items-center gap-2">
+                  <Images className="h-4 w-4" />
+                  Imagens
+                </Link>
               </Button>
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/admin/messages">Mensagens</Link>
+                <Link href="/admin/messages" className="flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4" />
+                  Mensagens
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <Link href="/">Voltar ao site</Link>
+                <Link href="/" className="flex items-center gap-2">
+                  <Home className="h-4 w-4" />
+                  Voltar ao site
+                </Link>
               </Button>
               <Button variant="destructive" size="sm" asChild>
-                <Link href="/api/admin/logout">Sair</Link>
+                <Link href="/api/admin/logout" className="flex items-center gap-2">
+                  <LogOut className="h-4 w-4" />
+                  Sair
+                </Link>
               </Button>
             </nav>
           </div>
