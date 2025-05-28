@@ -39,18 +39,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Servir arquivos estáticos da pasta uploads
   app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
   
-  // Configurar middleware de sessão
+  // Configurar middleware de sessão simples
   app.use(
     session({
-      store: memoryStore,
-      secret: process.env.SESSION_SECRET || "sua-chave-secreta",
+      secret: "chave-secreta-temporaria-2025",
       resave: false,
       saveUninitialized: false,
       cookie: {
-        secure: false, // Permitir cookies não-seguros para compatibilidade
-        httpOnly: true, // Protege contra XSS
-        maxAge: 24 * 60 * 60 * 1000, // 1 dia
-        sameSite: 'lax', // Permite cookies em requisições do mesmo site
+        secure: false,
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
       },
     })
   );
