@@ -23,11 +23,14 @@ class MemoryStorage {
   private nextId = 1;
 
   constructor() {
-    // Criar administrador padrão
+    // Criar administrador usando variáveis de ambiente
+    const adminUsername = process.env.ADMIN_USERNAME || "admin";
+    const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+    
     this.admins.push({
       id: 1,
-      username: "admin",
-      passwordHash: bcrypt.hashSync("admin123", 10),
+      username: adminUsername,
+      passwordHash: bcrypt.hashSync(adminPassword, 10),
       createdAt: new Date()
     });
   }
