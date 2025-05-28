@@ -60,8 +60,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      // Em produção, usar banco; em desenvolvimento, usar memória
-      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
+      // Tentar banco primeiro, fallback para memória se houver erro
+      let dataSource = storage;
+      try {
+        // Teste rápido de conexão
+        await storage.getSiteImages();
+      } catch (dbError) {
+        console.warn("Database unavailable, using memory storage");
+        dataSource = memoryStorage;
+      }
       
       if (section === "all") {
         const images = await dataSource.getSiteImages();
@@ -83,9 +90,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Validate request data
       const validatedData = insertContactSchema.parse(req.body);
       
-      // Store contact message (produção usa banco, desenvolvimento usa memória)
-      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
-      const message = await dataSource.createContactMessage(validatedData);
+      // Store contact message sempre no banco de dados
+      const message = await storage.createContactMessage(validatedData);
       
       // Try to send email notification to deborah_santalena@hotmail.com
       try {
@@ -364,8 +370,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de imagens
   app.get("/api/admin/images", isAdmin, async (req, res) => {
     try {
-      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
-      const images = await dataSource.getSiteImages();
+      const images = await storage.getSiteImages();
       res.status(200).json(images);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -440,8 +445,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/admin/images", isAdmin, async (req, res) => {
     try {
       const imageData = insertSiteImageSchema.parse(req.body);
-      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
-      const newImage = await dataSource.createSiteImage(imageData);
+      const newImage = await storage.createSiteImage(imageData);
       
       res.status(201).json(newImage);
     } catch (error) {
