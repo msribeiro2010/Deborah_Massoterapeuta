@@ -11,7 +11,7 @@ import {
 } from "@shared/schema";
 import { z } from "zod";
 import session from "express-session";
-import pgSession from "connect-pg-simple";
+import MemoryStore from "memorystore";
 import { upload, getImageUrl } from "./upload";
 
 // Definir tipagem para a sessão
@@ -21,11 +21,9 @@ declare module 'express-session' {
   }
 }
 
-const PgSessionStore = pgSession(session);
-const pgSessionStore = new PgSessionStore({
-  conString: process.env.DATABASE_URL,
-  createTableIfMissing: false,
-  tableName: "sessions",
+const MemoryStoreSession = MemoryStore(session);
+const memoryStore = new MemoryStoreSession({
+  checkPeriod: 86400000 // prune expired entries every 24h
 });
 
 // Middleware para verificar autenticação de administrador
@@ -44,7 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Configurar middleware de sessão
   app.use(
     session({
-      store: pgSessionStore,
+      store: memoryStore,
       secret: process.env.SESSION_SECRET || "sua-chave-secreta",
       resave: false,
       saveUninitialized: false,
