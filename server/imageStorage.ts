@@ -60,8 +60,10 @@ export class PersistentImageStorage {
     const images = this.loadData();
     const newImage: SiteImage = {
       id: this.nextId++,
-      ...imageData,
-      createdAt: new Date(),
+      section: imageData.section,
+      imageUrl: imageData.imageUrl,
+      title: imageData.title || null,
+      description: imageData.description || null,
       updatedAt: new Date()
     };
     

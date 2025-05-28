@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import path from "path";
 import { storage } from "./storage";
 import { memoryStorage } from "./memoryStorage";
+import { persistentImageStorage } from "./imageStorage";
 import { 
   insertContactSchema, 
   loginSchema, 
@@ -60,15 +61,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      // Tentar banco primeiro, fallback para memória se houver erro
-      let dataSource = storage;
-      try {
-        // Teste rápido de conexão
-        await storage.getSiteImages();
-      } catch (dbError) {
-        console.warn("Database unavailable, using memory storage");
-        dataSource = memoryStorage;
-      }
+      // Usar armazenamento persistente de imagens
+      const dataSource = persistentImageStorage;
       
       if (section === "all") {
         const images = await dataSource.getSiteImages();
@@ -370,7 +364,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de imagens
   app.get("/api/admin/images", isAdmin, async (req, res) => {
     try {
-      const images = await storage.getSiteImages();
+      const images = await persistentImageStorage.getSiteImages();
       res.status(200).json(images);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -445,7 +439,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/admin/images", isAdmin, async (req, res) => {
     try {
       const imageData = insertSiteImageSchema.parse(req.body);
-      const newImage = await storage.createSiteImage(imageData);
+      const newImage = await persistentImageStorage.createSiteImage(imageData);
       
       res.status(201).json(newImage);
     } catch (error) {
