@@ -31,12 +31,17 @@ export default function AdminLogin() {
         throw new Error('Credenciais inválidas');
       }
 
+      const data = await response.json();
+      
       toast({
         title: 'Login bem-sucedido',
         description: 'Redirecionando para o painel administrativo...',
       });
 
-      navigate('/admin/dashboard');
+      // Aguardar um pouco para mostrar a mensagem antes de redirecionar
+      setTimeout(() => {
+        navigate('/admin/dashboard');
+      }, 1000);
     } catch (error) {
       toast({
         title: 'Erro de autenticação',
