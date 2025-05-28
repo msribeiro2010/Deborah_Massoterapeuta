@@ -34,10 +34,10 @@ const Hero = () => {
     loadHeroImage();
   }, []);
 
-  // Certifica que a URL tem o formato correto para exibição
+  // Usa apenas a imagem que você subiu, sem fallback
   const backgroundImageUrl = heroImage?.imageUrl 
     ? (heroImage.imageUrl.startsWith('http') ? heroImage.imageUrl : `${window.location.origin}${heroImage.imageUrl}`)
-    : "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
+    : null;
 
   return (
     <section
