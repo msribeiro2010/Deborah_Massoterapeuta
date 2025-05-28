@@ -3,8 +3,10 @@ import path from 'path';
 import fs from 'fs-extra';
 import { Request } from 'express';
 
-// Certifique-se de que o diretório de uploads existe
-const uploadsDir = path.join(process.cwd(), 'uploads');
+// Configuração de diretórios para produção e desenvolvimento
+const uploadsDir = process.env.NODE_ENV === 'production' 
+  ? path.join('/tmp', 'uploads') // Em produção, usar tmp que é persistente no Replit
+  : path.join(process.cwd(), 'uploads');
 const imagesDir = path.join(uploadsDir, 'images');
 
 fs.ensureDirSync(uploadsDir);
