@@ -82,8 +82,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Validate request data
       const validatedData = insertContactSchema.parse(req.body);
       
-      // Store contact message
-      const message = await storage.createContactMessage(validatedData);
+      // Store contact message no sistema temporário
+      const message = await memoryStorage.createContactMessage(validatedData);
       
       // Try to send email notification to deborah_santalena@hotmail.com
       try {
