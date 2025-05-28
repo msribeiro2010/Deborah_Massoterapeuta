@@ -64,25 +64,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      try {
-        // Tentar usar o banco de dados principal primeiro
-        if (section === "all") {
-          const images = await storage.getSiteImages();
-          res.status(200).json(images);
-        } else {
-          const images = await storage.getSiteImagesBySection(section);
-          res.status(200).json(images);
-        }
-      } catch (dbError) {
-        // Se o banco principal falhar, usar armazenamento temporário
-        console.log("Usando armazenamento temporário para imagens");
-        if (section === "all") {
-          const images = await memoryStorage.getSiteImages();
-          res.status(200).json(images);
-        } else {
-          const images = await memoryStorage.getSiteImagesBySection(section);
-          res.status(200).json(images);
-        }
+      // Usar apenas armazenamento temporário
+      if (section === "all") {
+        const images = await memoryStorage.getSiteImages();
+        res.status(200).json(images);
+      } else {
+        const images = await memoryStorage.getSiteImagesBySection(section);
+        res.status(200).json(images);
       }
     } catch (error) {
       console.error("Error fetching section images:", error);
@@ -173,9 +161,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Validar dados de login
       const loginData = loginSchema.parse(req.body);
       
-      // Login temporário enquanto o banco está com problemas
+      console.log("Tentativa de login:", loginData.username);
+      
+      // Usar apenas credenciais fixas temporárias
       if (loginData.username === "admin" && loginData.password === "admin123") {
         req.session.adminId = 1;
+        
+        console.log("Login bem-sucedido para admin");
         
         return res.status(200).json({
           message: "Login bem-sucedido",
@@ -186,28 +178,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Tentar verificar credenciais no banco temporário
-      try {
-        const admin = await memoryStorage.verifyAdminPassword(
-          loginData.username, 
-          loginData.password
-        );
-        
-        if (admin) {
-          req.session.adminId = admin.id;
-          
-          return res.status(200).json({
-            message: "Login bem-sucedido",
-            admin: {
-              id: admin.id,
-              username: admin.username
-            }
-          });
-        }
-      } catch (dbError) {
-        console.log("Erro de banco temporário");
-      }
-      
+      console.log("Credenciais inválidas");
       return res.status(401).json({
         message: "Credenciais inválidas."
       });
