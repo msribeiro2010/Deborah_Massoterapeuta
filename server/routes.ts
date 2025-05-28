@@ -228,7 +228,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de mensagens de contato
   app.get("/api/admin/contact-messages", isAdmin, async (req, res) => {
     try {
-      const messages = await storage.getContactMessages();
+      const messages = await memoryStorage.getContactMessages();
       res.status(200).json(messages);
     } catch (error) {
       console.error("Error fetching contact messages:", error);
@@ -261,7 +261,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de serviços
   app.get("/api/admin/services", isAdmin, async (req, res) => {
     try {
-      const services = await storage.getServices();
+      const services = await memoryStorage.getServices();
       res.status(200).json(services);
     } catch (error) {
       console.error("Error fetching services:", error);
@@ -362,7 +362,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de imagens
   app.get("/api/admin/images", isAdmin, async (req, res) => {
     try {
-      const images = await storage.getSiteImages();
+      const images = await memoryStorage.getSiteImages();
       res.status(200).json(images);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -437,7 +437,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/admin/images", isAdmin, async (req, res) => {
     try {
       const imageData = insertSiteImageSchema.parse(req.body);
-      const newImage = await storage.createSiteImage(imageData);
+      const newImage = await memoryStorage.createSiteImage(imageData);
       
       res.status(201).json(newImage);
     } catch (error) {
@@ -460,7 +460,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { id } = req.params;
       const imageData = req.body;
       
-      const updatedImage = await storage.updateSiteImage({
+      const updatedImage = await memoryStorage.updateSiteImage({
         id: Number(id),
         ...imageData
       });
@@ -483,7 +483,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/admin/images/:id", isAdmin, async (req, res) => {
     try {
       const { id } = req.params;
-      const success = await storage.deleteSiteImage(Number(id));
+      const success = await memoryStorage.deleteSiteImage(Number(id));
       
       if (!success) {
         return res.status(404).json({
