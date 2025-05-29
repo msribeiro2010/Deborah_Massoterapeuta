@@ -363,7 +363,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Gerenciamento de imagens
   app.get("/api/admin/images", isAdmin, async (req, res) => {
     try {
-      const images = await persistentImageStorage.getSiteImages();
+      const images = await storage.getSiteImages();
       res.status(200).json(images);
     } catch (error) {
       console.error("Error fetching images:", error);
