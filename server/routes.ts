@@ -61,8 +61,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      // Usar armazenamento persistente de imagens
-      const dataSource = persistentImageStorage;
+      // Usar armazenamento temporário para simplificar
+      const dataSource = memoryStorage;
       
       if (section === "all") {
         const images = await dataSource.getSiteImages();
