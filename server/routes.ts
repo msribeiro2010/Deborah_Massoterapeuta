@@ -438,7 +438,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/admin/images", isAdmin, async (req, res) => {
     try {
       const imageData = insertSiteImageSchema.parse(req.body);
-      const newImage = await persistentImageStorage.createSiteImage(imageData);
+      const newImage = await storage.createSiteImage(imageData);
       
       res.status(201).json(newImage);
     } catch (error) {
@@ -461,7 +461,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { id } = req.params;
       const imageData = req.body;
       
-      const updatedImage = await memoryStorage.updateSiteImage({
+      const updatedImage = await storage.updateSiteImage({
         id: Number(id),
         ...imageData
       });
@@ -484,7 +484,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/admin/images/:id", isAdmin, async (req, res) => {
     try {
       const { id } = req.params;
-      const success = await memoryStorage.deleteSiteImage(Number(id));
+      const success = await storage.deleteSiteImage(Number(id));
       
       if (!success) {
         return res.status(404).json({
