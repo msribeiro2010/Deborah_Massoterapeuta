@@ -61,14 +61,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      // Usar sempre o banco de dados em produção
-      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
+      // Usar banco de dados
       
       if (section === "all") {
-        const images = await dataSource.getSiteImages();
+        const images = await storage.getSiteImages();
         res.status(200).json(images);
       } else {
-        const images = await dataSource.getSiteImagesBySection(section);
+        const images = await storage.getSiteImagesBySection(section);
         res.status(200).json(images);
       }
     } catch (error) {
