@@ -356,7 +356,11 @@ export default function Images() {
                       src={image.imageUrl} 
                       alt={image.title || 'Imagem do site'} 
                       className="w-full h-48 object-cover"
-                      onError={(e) => (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200?text=Imagem+inválida'}
+                      onLoad={() => console.log('Imagem carregada na lista:', image.imageUrl)}
+                      onError={(e) => {
+                        console.error('Erro ao carregar imagem na lista:', image.imageUrl);
+                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200?text=Erro+ao+carregar';
+                      }}
                     />
                   </div>
                   <div>
@@ -483,7 +487,11 @@ export default function Images() {
                       src={form.imageUrl} 
                       alt="Pré-visualização"
                       className="w-full h-48 object-cover rounded-md"
-                      onError={(e) => (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200?text=Imagem+inválida'}
+                      onLoad={() => console.log('Imagem carregada:', form.imageUrl)}
+                      onError={(e) => {
+                        console.error('Erro ao carregar imagem:', form.imageUrl);
+                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x200?text=Erro+ao+carregar+imagem';
+                      }}
                     />
                   </div>
                 )}
