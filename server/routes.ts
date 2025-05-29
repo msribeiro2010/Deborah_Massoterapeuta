@@ -61,8 +61,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { section } = req.params;
       
-      // Usar armazenamento temporário para simplificar
-      const dataSource = memoryStorage;
+      // Usar sempre o banco de dados em produção
+      const dataSource = process.env.NODE_ENV === 'production' ? storage : memoryStorage;
       
       if (section === "all") {
         const images = await dataSource.getSiteImages();

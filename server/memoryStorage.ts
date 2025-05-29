@@ -45,7 +45,7 @@ class MemoryStorage {
       {
         id: 1,
         section: "hero",
-        imageUrl: "/src/assets/IMG_3380.JPG",
+        imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
         title: "Tratamento Facial Especializado",
         description: "Relaxamento e rejuvenescimento com técnicas profissionais",
         updatedAt: new Date()
