@@ -31,23 +31,26 @@ const Header = () => {
   };
 
   const scrollToSection = (href: string) => {
-    console.log('Clicou em:', href); // Debug
+    console.log('Clicou em:', href);
     closeMobileMenu();
     
-    // Aguardar um pouco para o menu fechar antes de fazer scroll
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      console.log('Elemento encontrado:', element); // Debug
-      if (element) {
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - 100;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100);
+    try {
+      // Aguardar um pouco para o menu fechar antes de fazer scroll
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - 100;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    } catch (error) {
+      console.error('Erro na navegação:', error);
+    }
   };
 
   return (
