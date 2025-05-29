@@ -21,6 +21,7 @@ class MemoryStorage {
   private admins: Admin[] = [];
   private users: User[] = [];
   private nextId = 1;
+  private imagesFile = './persistent_images.json';
 
   constructor() {
     // Criar administrador usando variáveis de ambiente
@@ -33,6 +34,34 @@ class MemoryStorage {
       passwordHash: bcrypt.hashSync(adminPassword, 10),
       createdAt: new Date()
     });
+
+    // Carregar imagens salvas
+    this.loadImages();
+  }
+
+  private loadImages() {
+    try {
+      const fs = require('fs');
+      if (fs.existsSync(this.imagesFile)) {
+        const data = fs.readFileSync(this.imagesFile, 'utf8');
+        const parsed = JSON.parse(data);
+        if (Array.isArray(parsed)) {
+          this.images = parsed;
+          this.nextId = Math.max(...this.images.map(img => img.id), 0) + 1;
+        }
+      }
+    } catch (error) {
+      console.warn('Não foi possível carregar imagens salvas:', error);
+    }
+  }
+
+  private saveImages() {
+    try {
+      const fs = require('fs');
+      fs.writeFileSync(this.imagesFile, JSON.stringify(this.images, null, 2));
+    } catch (error) {
+      console.error('Erro ao salvar imagens:', error);
+    }
   }
 
   // User operations
