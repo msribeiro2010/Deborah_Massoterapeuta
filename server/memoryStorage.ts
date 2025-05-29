@@ -40,34 +40,42 @@ class MemoryStorage {
   }
 
   private loadImages() {
-    // Carregar algumas imagens padrão para manter o site funcionando
+    // Carregar as imagens reais da Deborah Santalena
     this.images = [
       {
         id: 1,
         section: "hero",
-        imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        title: "Ambiente Relaxante",
-        description: "Espaço dedicado ao seu bem-estar",
+        imageUrl: "/src/assets/IMG_3380.JPG",
+        title: "Tratamento Facial Especializado",
+        description: "Relaxamento e rejuvenescimento com técnicas profissionais",
         updatedAt: new Date()
       },
       {
         id: 2,
         section: "about",
-        imageUrl: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        title: "Terapia Especializada",
-        description: "Cuidado profissional para sua saúde",
+        imageUrl: "/src/assets/IMG_3384.JPG",
+        title: "Massagem Terapêutica",
+        description: "Técnicas especializadas para alívio e bem-estar",
         updatedAt: new Date()
       },
       {
         id: 3,
         section: "ambiente",
-        imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        title: "Sala de Massagem",
-        description: "Ambiente tranquilo e acolhedor",
+        imageUrl: "/src/assets/IMG_3381.JPG",
+        title: "Ambiente Profissional",
+        description: "Espaço tranquilo e acolhedor para seu relaxamento",
+        updatedAt: new Date()
+      },
+      {
+        id: 4,
+        section: "ambiente",
+        imageUrl: "/src/assets/IMG_3383.JPG",
+        title: "Massagem Cervical",
+        description: "Cuidado especializado para região do pescoço e ombros",
         updatedAt: new Date()
       }
     ];
-    this.nextId = 4;
+    this.nextId = 5;
   }
 
   private saveImages() {
