@@ -8,7 +8,12 @@ app.use(express.urlencoded({ extended: false }));
 
 // Servir imagens estáticas
 app.use('/src/assets', express.static('attached_assets'));
-app.use('/uploads', express.static('uploads'));
+
+// Configurar diretório de uploads baseado no ambiente
+const uploadsPath = process.env.NODE_ENV === 'production' 
+  ? '/tmp/uploads' 
+  : 'uploads';
+app.use('/uploads', express.static(uploadsPath));
 
 app.use((req, res, next) => {
   const start = Date.now();
