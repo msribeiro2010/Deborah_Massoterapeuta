@@ -52,10 +52,10 @@ const About = () => {
               Deborah Santalena
             </h2>
             <p className="text-gray-600 mb-4">
-              Com mais de 10 anos de experiência, sou especializada em várias técnicas de massoterapia, formada pelo Instituto Americano de Estudos Terapêuticos com certificações internacionais.
+              Com mais de 10 anos de experiência, sou especializada em várias técnicas de massoterapia, com certificações internacionais.
             </p>
             <p className="text-gray-600 mb-4">
-              Minha abordagem combina conhecimentos de anatomia, fisiologia e práticas integrativas, visando não apenas o alívio dos sintomas, mas o equilíbrio completo entre corpo e mente.
+              Minha abordagem combina práticas integrativas, visando não apenas o alívio dos sintomas, mas o equilíbrio completo entre corpo e mente.
             </p>
             <p className="text-gray-600 mb-6">
               Acredito no poder do toque terapêutico como ferramenta de transformação e bem-estar, e trabalho com cada cliente de forma personalizada, compreendendo suas necessidades específicas.
