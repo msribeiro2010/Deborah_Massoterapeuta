@@ -16,6 +16,9 @@ export default defineConfig({
         ]
       : []),
   ],
+  // If the build is running inside GitHub Actions for Pages, set the base path automatically
+  // Otherwise default to root for local/Vercel deployments
+  base: process.env.GH_PAGES_BASE ?? "/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
