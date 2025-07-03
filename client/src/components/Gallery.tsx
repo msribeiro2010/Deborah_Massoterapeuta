@@ -7,6 +7,7 @@ interface AmbienteImage {
   imageUrl: string;
   title: string | null;
   description: string | null;
+  section?: string | null;
 }
 
 const Gallery = () => {
@@ -24,10 +25,10 @@ const Gallery = () => {
           // Busca também imagens que estão sem seção definida ou com outras seções
           const allResponse = await fetch('/api/images/all');
           if (allResponse.ok) {
-            const allImages = await allResponse.json();
+            const allImages: AmbienteImage[] = await allResponse.json();
             
             // Filtra imagens que têm seção vazia ou são da gallery
-            const extraImages = allImages.filter((img: any) => 
+            const extraImages = allImages.filter((img: AmbienteImage) => 
               !img.section || img.section === '' || img.section === 'gallery'
             );
             
