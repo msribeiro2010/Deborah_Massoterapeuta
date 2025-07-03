@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { galleryImages } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 
 interface AmbienteImage {
   id: number;
@@ -16,7 +16,7 @@ interface DisplayImage {
   description: string | null;
 }
 
-const Gallery = () => {
+const Gallery: FC = () => {
   const [ambienteImages, setAmbienteImages] = useState<AmbienteImage[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -56,12 +56,12 @@ const Gallery = () => {
 
   // Se não tiver imagens do banco de dados, usa as do fallback
   const imagesToDisplay: DisplayImage[] = ambienteImages.length > 0
-    ? ambienteImages.map((img): DisplayImage => ({
+    ? ambienteImages.map((img: AmbienteImage): DisplayImage => ({
         src: img.imageUrl.startsWith('http') ? img.imageUrl : `${window.location.origin}${img.imageUrl}`,
         alt: img.title || `Imagem do ambiente tranquilo`,
         description: img.description
       }))
-    : galleryImages.map((image, index): DisplayImage => ({
+    : galleryImages.map((image: string, index: number): DisplayImage => ({
         src: image,
         alt: `Imagem do ambiente tranquilo ${index + 1}`,
         description: null
