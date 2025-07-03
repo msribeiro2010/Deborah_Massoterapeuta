@@ -27,7 +27,7 @@ const Gallery = () => {
             const allImages = await allResponse.json();
             
             // Filtra imagens que têm seção vazia ou são da gallery
-            const extraImages = allImages.filter(img => 
+            const extraImages = allImages.filter((img: any) => 
               !img.section || img.section === '' || img.section === 'gallery'
             );
             
