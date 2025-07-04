@@ -2,8 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-// Substitua 'seu-repositorio' pelo nome real do seu repositório
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'seu-repositorio';
+// Nome do repositório GitHub
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Deborah_Massoterapeuta';
 
 export default defineConfig({
   plugins: [react()],
