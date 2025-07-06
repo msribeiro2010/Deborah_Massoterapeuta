@@ -48,6 +48,7 @@ class MemoryStorage {
         imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
         title: "Tratamento Facial Especializado",
         description: "Relaxamento e rejuvenescimento com técnicas profissionais",
+        createdAt: new Date(),
         updatedAt: new Date()
       },
       {
@@ -56,7 +57,8 @@ class MemoryStorage {
         imageUrl: "/src/assets/IMG_3384.JPG",
         title: "Massagem Terapêutica",
         description: "Técnicas especializadas para alívio e bem-estar",
-        updatedAt: new Date()
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 3,
@@ -64,7 +66,8 @@ class MemoryStorage {
         imageUrl: "/src/assets/IMG_3381.JPG",
         title: "Ambiente Profissional",
         description: "Espaço tranquilo e acolhedor para seu relaxamento",
-        updatedAt: new Date()
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 4,
@@ -72,7 +75,8 @@ class MemoryStorage {
         imageUrl: "/src/assets/IMG_3383.JPG",
         title: "Massagem Cervical",
         description: "Cuidado especializado para região do pescoço e ombros",
-        updatedAt: new Date()
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
     ];
     this.nextId = 5;
@@ -96,9 +100,13 @@ class MemoryStorage {
       return this.users[existingIndex];
     } else {
       const newUser: User = {
-        ...userData,
+        id: userData.id,
+        email: userData.email ?? null,
+        firstName: userData.firstName ?? null,
+        lastName: userData.lastName ?? null,
+        profileImageUrl: userData.profileImageUrl ?? null,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       };
       this.users.push(newUser);
       return newUser;
@@ -211,9 +219,12 @@ class MemoryStorage {
   async createSiteImage(image: InsertSiteImage): Promise<SiteImage> {
     const newImage: SiteImage = {
       id: this.nextId++,
-      ...image,
+      section: image.section,
+      imageUrl: image.imageUrl,
+      title: image.title ?? null,
+      description: image.description ?? null,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
     this.images.push(newImage);
     return newImage;
