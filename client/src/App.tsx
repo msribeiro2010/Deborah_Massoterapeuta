@@ -7,24 +7,20 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 
-function Router() {
-  return (
-    <Switch>
-      {/* Rota principal */}
-      <Route path="/" component={Home} />
-      
-      {/* Rota 404 */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <Switch>
+          {/* Rota principal */}
+          <Route path="/" component={Home} />
+          
+          {/* Rota 404 */}
+          <Route component={NotFound} />
+        </Switch>
       </TooltipProvider>
     </QueryClientProvider>
   );
