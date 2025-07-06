@@ -1,9 +1,10 @@
 // Configuração da URL da API
-// Ajuste a URL de produção para apontar para onde seu backend estará hospedado
+// IMPORTANTE: Atualize a URL de produção para apontar para onde seu backend estará hospedado
+// Exemplos: https://api.seudominio.com, https://seu-app.herokuapp.com, https://seu-app.onrender.com
 
 export const API_URL = import.meta.env.DEV 
   ? '' // Em desenvolvimento, usa proxy do Vite (mesma origem)
-  : 'https://sua-api-backend.com'; // Em produção, aponta para o backend hospedado
+  : ''; // ATENÇÃO: Configure aqui a URL do seu backend em produção!
 
 // Função helper para construir URLs da API
 export const apiUrl = (path: string) => {
