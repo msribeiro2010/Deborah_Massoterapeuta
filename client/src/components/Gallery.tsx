@@ -62,28 +62,28 @@ const Gallery = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {imagesToDisplay.map((image, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.7, delay: index * 0.12, type: 'spring', bounce: 0.25 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden rounded-[32px] border-2 border-[#8BBF9F]/25 hover:border-[#8BBF9F]/50 shadow-lg hover:shadow-xl transition-all duration-500 h-80 transform hover:scale-[1.03]"
+              className="relative group overflow-hidden rounded-3xl border-2 border-[#8BBF9F]/20 hover:border-[#4A7C91]/60 shadow-xl hover:shadow-2xl transition-all duration-500 h-96 bg-white/80 hover:bg-white"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4A7C91]/5 to-[#8BBF9F]/10 group-hover:opacity-0 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 bg-white/10 z-0 group-hover:bg-white/5 transition-colors duration-500"></div>
               <img
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-contain p-4 relative z-10 transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover p-4 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:brightness-105 group-hover:contrast-110"
+                style={{ borderRadius: '1.5rem' }}
               />
-              {image.description && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-sm">{image.description}</p>
-                </div>
-              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4A7C91]/40 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500 z-20 flex items-end justify-center">
+                <span className="text-white text-lg font-semibold mb-6 drop-shadow-lg px-4 text-center w-full">
+                  {image.alt}
+                </span>
+              </div>
+              <div className="absolute inset-0 pointer-events-none group-hover:ring-4 group-hover:ring-[#8BBF9F]/40 rounded-3xl transition-all duration-500"></div>
             </motion.div>
           ))}
         </div>
