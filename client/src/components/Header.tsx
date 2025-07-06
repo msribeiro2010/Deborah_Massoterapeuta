@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Heart, User, MessageCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImage from "../assets/new-logo.png";
 
 const navItems = [
-  { name: "Início", href: "#home" },
-  { name: "Serviços", href: "#services" },
-  { name: "Sobre", href: "#about" },
-  { name: "Depoimentos", href: "#testimonials" },
-  { name: "Contato", href: "#contact" },
+  { name: "Início", href: "#home", icon: Home },
+  { name: "Serviços", href: "#services", icon: Heart },
+  { name: "Sobre", href: "#about", icon: User },
+  { name: "Depoimentos", href: "#testimonials", icon: Star },
+  { name: "Contato", href: "#contact", icon: MessageCircle },
 ];
 
 const Header = () => {
@@ -56,8 +56,10 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed w-full bg-white/95 shadow-sm backdrop-blur-sm z-50 transition-all duration-300",
-        scrolled ? "py-2" : "py-3 md:py-4"
+        "fixed w-full z-50 transition-all duration-300",
+        scrolled
+          ? "bg-white/80 backdrop-blur-md shadow-2xl py-2"
+          : "bg-white/60 backdrop-blur-md shadow-md py-3 md:py-4"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -85,9 +87,14 @@ const Header = () => {
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className="text-[#494644] hover:text-[#4A7C91] font-medium transition"
+              className="relative px-5 py-2 rounded-full font-medium text-[#494644] bg-gradient-to-r from-[#E2F4E8] to-[#EBFAEF] shadow-sm border border-transparent transition-all duration-300 hover:text-[#4A7C91] hover:bg-white/80 hover:shadow-lg hover:border-[#8BBF9F] focus:outline-none focus:ring-2 focus:ring-[#8BBF9F]/60 focus:ring-offset-2 group"
             >
-              {item.name}
+              <span className="flex items-center gap-2 relative z-10">
+                <item.icon size={18} className="text-[#8BBF9F] group-hover:text-[#4A7C91] transition-colors duration-300" />
+                {item.name}
+              </span>
+              {/* Underline animado */}
+              <span className="absolute left-6 right-6 -bottom-1 h-[3px] rounded-full bg-gradient-to-r from-[#8BBF9F] to-[#4A7C91] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
           ))}
         </nav>
