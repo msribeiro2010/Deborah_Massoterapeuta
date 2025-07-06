@@ -41,6 +41,7 @@ export const siteImages = pgTable("site_images", {
   imageUrl: text("image_url").notNull(),
   title: varchar("title"),
   description: text("description"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
 
@@ -53,6 +54,7 @@ export const contactMessages = pgTable("contact_messages", {
   service: varchar("service").notNull(),
   message: text("message").notNull(),
   read: boolean("read").notNull().default(false),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 

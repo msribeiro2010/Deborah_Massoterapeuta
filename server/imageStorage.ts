@@ -62,9 +62,10 @@ export class PersistentImageStorage {
       id: this.nextId++,
       section: imageData.section,
       imageUrl: imageData.imageUrl,
-      title: imageData.title || null,
-      description: imageData.description || null,
-      updatedAt: new Date()
+      title: imageData.title ?? null,
+      description: imageData.description ?? null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
     
     images.push(newImage);

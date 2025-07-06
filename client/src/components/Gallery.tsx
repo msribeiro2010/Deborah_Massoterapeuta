@@ -1,15 +1,22 @@
 import { motion } from "framer-motion";
 import { galleryImages } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 
 interface AmbienteImage {
   id: number;
   imageUrl: string;
   title: string | null;
   description: string | null;
+  section?: string | null;
 }
 
-const Gallery = () => {
+interface DisplayImage {
+  src: string;
+  alt: string;
+  description: string | null;
+}
+
+const Gallery: FC = () => {
   const [ambienteImages, setAmbienteImages] = useState<AmbienteImage[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,15 +26,15 @@ const Gallery = () => {
         // Busca imagens da seção 'ambiente'
         const ambienteResponse = await fetch('/api/images/ambiente');
         if (ambienteResponse.ok) {
-          const ambienteImgs = await ambienteResponse.json();
+          const ambienteImgs: AmbienteImage[] = await ambienteResponse.json();
           
           // Busca também imagens que estão sem seção definida ou com outras seções
           const allResponse = await fetch('/api/images/all');
           if (allResponse.ok) {
-            const allImages = await allResponse.json();
+            const allImages: AmbienteImage[] = await allResponse.json();
             
             // Filtra imagens que têm seção vazia ou são da gallery
-            const extraImages = allImages.filter(img => 
+            const extraImages = allImages.filter((img: AmbienteImage) => 
               !img.section || img.section === '' || img.section === 'gallery'
             );
             
@@ -48,13 +55,13 @@ const Gallery = () => {
   }, []);
 
   // Se não tiver imagens do banco de dados, usa as do fallback
-  const imagesToDisplay = ambienteImages.length > 0
-    ? ambienteImages.map(img => ({
+  const imagesToDisplay: DisplayImage[] = ambienteImages.length > 0
+    ? ambienteImages.map((img: AmbienteImage): DisplayImage => ({
         src: img.imageUrl.startsWith('http') ? img.imageUrl : `${window.location.origin}${img.imageUrl}`,
         alt: img.title || `Imagem do ambiente tranquilo`,
         description: img.description
       }))
-    : galleryImages.map((image, index) => ({
+    : galleryImages.map((image: string, index: number): DisplayImage => ({
         src: image,
         alt: `Imagem do ambiente tranquilo ${index + 1}`,
         description: null
@@ -108,7 +115,7 @@ const Gallery = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {imagesToDisplay.map((image, index) => (
+          {imagesToDisplay.map((image: DisplayImage, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
