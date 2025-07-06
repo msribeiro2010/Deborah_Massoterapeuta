@@ -26,7 +26,7 @@ export const staticImages = {
     },
     {
       id: 4,
-      url: `${import.meta.env.BASE_URL}images/ambiente-2.png`,
+      url: `${import.meta.env.BASE_URL}images/ambiente-3.jpg`,
       alt: "Sala de Massagem",
       category: "ambiente"
     }
@@ -42,17 +42,7 @@ export const staticImages = {
       url: `${import.meta.env.BASE_URL}images/massagem-2.jpg`,
       alt: "Massagem Relaxante"
     },
-    {
-      id: 8,
-      url: `${import.meta.env.BASE_URL}images/massagem-3.jpg`,
-      alt: "Massagem Desportiva"
-    },
-    {
-      id: 9,
-      url: `${import.meta.env.BASE_URL}images/massagem-4.jpg`,
-      alt: "Pedras Quentes"
-    }
-  ]
+     ]
 };
 
 export const staticServices = [
