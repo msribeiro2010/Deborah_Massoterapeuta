@@ -11,7 +11,7 @@
     "check": "tsc",
     "db:push": "drizzle-kit push",
     "predeploy": "npm run build:gh-pages",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist-gh-pages"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
