@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { staticImages } from "@/data/static-data";
 
 const Gallery = () => {
-  // Combina imagens do ambiente com todas as outras imagens
-  const ambienteImages = [...staticImages.ambiente, ...staticImages.all];
+  // Combina imagens do ambiente com todas as outras imagens, removendo repetições
+  const ambienteImages = Array.from(
+    new Map(
+      [...staticImages.ambiente, ...staticImages.all].map(img => [img.url, img])
+    ).values()
+  );
   
   const imagesToDisplay = ambienteImages.map((img, index) => ({
     src: img.url,

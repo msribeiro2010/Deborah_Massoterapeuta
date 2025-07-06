@@ -170,6 +170,8 @@ Telefone: ${values.phone}`;
             </div>
           </motion.div>
 
+          {/* Formulário removido conforme solicitado */}
+          {/*
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -293,6 +295,7 @@ Telefone: ${values.phone}`;
               </Form>
             </div>
           </motion.div>
+          */}
         </div>
       </div>
     </section>

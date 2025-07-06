@@ -4,7 +4,7 @@ export const staticImages = {
   hero: [
     {
       id: 1,
-      url: "/images/hero-massage.jpg",
+      url: `${import.meta.env.BASE_URL}images/hero-massage.jpg`,
       alt: "Massagem Relaxante",
       category: "hero"
     }
@@ -12,7 +12,7 @@ export const staticImages = {
   about: [
     {
       id: 2,
-      url: "/images/deborah-profile.jpg",
+      url: `${import.meta.env.BASE_URL}images/deborah-profile.jpg`,
       alt: "Deborah - Massoterapeuta",
       category: "about"
     }
@@ -20,42 +20,36 @@ export const staticImages = {
   ambiente: [
     {
       id: 3,
-      url: "/images/ambiente-1.jpg",
+      url: `${import.meta.env.BASE_URL}images/ambiente-1.png`,
       alt: "Ambiente de Massagem",
       category: "ambiente"
     },
     {
       id: 4,
-      url: "/images/ambiente-2.jpg",
+      url: `${import.meta.env.BASE_URL}images/ambiente-2.png`,
       alt: "Sala de Massagem",
-      category: "ambiente"
-    },
-    {
-      id: 5,
-      url: "/images/ambiente-3.jpg",
-      alt: "Espaço Relaxante",
       category: "ambiente"
     }
   ],
   all: [
     {
       id: 6,
-      url: "/images/massagem-1.jpg",
+      url: `${import.meta.env.BASE_URL}images/massagem-1.jpg`,
       alt: "Massagem Terapêutica"
     },
     {
       id: 7,
-      url: "/images/massagem-2.jpg",
+      url: `${import.meta.env.BASE_URL}images/massagem-2.jpg`,
       alt: "Massagem Relaxante"
     },
     {
       id: 8,
-      url: "/images/massagem-3.jpg",
+      url: `${import.meta.env.BASE_URL}images/massagem-3.jpg`,
       alt: "Massagem Desportiva"
     },
     {
       id: 9,
-      url: "/images/massagem-4.jpg",
+      url: `${import.meta.env.BASE_URL}images/massagem-4.jpg`,
       alt: "Pedras Quentes"
     }
   ]
