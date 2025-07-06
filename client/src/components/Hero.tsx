@@ -1,43 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
-
-interface HeroImage {
-  id: number;
-  imageUrl: string;
-  title: string | null;
-  description: string | null;
-}
+import { staticImages } from "@/data/static-data";
 
 const Hero = () => {
-  const [heroImage, setHeroImage] = useState<HeroImage | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadHeroImage() {
-      try {
-        const response = await fetch('/api/images/hero');
-        if (response.ok) {
-          const images = await response.json();
-          if (images && images.length > 0) {
-            setHeroImage(images[0]);
-          }
-        }
-      } catch (error) {
-        console.error("Erro ao carregar imagem do hero:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    loadHeroImage();
-  }, []);
-
-  // Usa apenas a imagem que você subiu, sem fallback
-  const backgroundImageUrl = heroImage?.imageUrl 
-    ? (heroImage.imageUrl.startsWith('http') ? heroImage.imageUrl : `${window.location.origin}${heroImage.imageUrl}`)
-    : null;
+  // Usa a primeira imagem hero dos dados estáticos
+  const heroImage = staticImages.hero[0];
+  const backgroundImageUrl = heroImage?.url || '/images/hero-massage.jpg';
 
   return (
     <section

@@ -1,36 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useQuery } from "@tanstack/react-query";
-import { useState, useEffect } from "react";
-
-interface AboutImage {
-  id: number;
-  imageUrl: string;
-  title: string | null;
-  description: string | null;
-}
+import { staticImages } from "@/data/static-data";
 
 const About = () => {
-  const [aboutImage, setAboutImage] = useState<AboutImage | null>(null);
-
-  // Buscar imagens da seção "about"
-  const { data: aboutImages } = useQuery({
-    queryKey: ["/api/images/about"],
-    queryFn: async () => {
-      const response = await fetch("/api/images/about");
-      if (!response.ok) throw new Error("Falha ao carregar imagem");
-      return response.json();
-    },
-  });
-
-  useEffect(() => {
-    async function loadAboutImage() {
-      if (aboutImages && aboutImages.length > 0) {
-        setAboutImage(aboutImages[0]); // Usar a primeira imagem disponível
-      }
-    }
-    loadAboutImage();
-  }, [aboutImages]);
+  const aboutImage = staticImages.about[0];
   return (
     <section
       id="about"
@@ -82,8 +55,8 @@ const About = () => {
             <div className="rounded-xl shadow-lg w-full max-w-md overflow-hidden">
               {aboutImage ? (
                 <img
-                  src={aboutImage.imageUrl}
-                  alt={aboutImage.title || "Deborah Santalena"}
+                  src={aboutImage.url}
+                  alt={aboutImage.alt || "Deborah Santalena"}
                   className="w-full h-[500px] object-cover"
                 />
               ) : (

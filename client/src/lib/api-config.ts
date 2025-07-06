@@ -1,18 +1,11 @@
 // Configuração da URL da API
-// IMPORTANTE: Atualize a URL de produção para apontar para onde seu backend estará hospedado
-// Exemplos: https://api.seudominio.com, https://seu-app.herokuapp.com, https://seu-app.onrender.com
+// Como não há backend, esta configuração não é necessária
+// Mas mantemos o arquivo para evitar erros de importação
 
-export const API_URL = import.meta.env.DEV 
-  ? '' // Em desenvolvimento, usa proxy do Vite (mesma origem)
-  : ''; // ATENÇÃO: Configure aqui a URL do seu backend em produção!
+export const API_URL = '';
 
 // Função helper para construir URLs da API
 export const apiUrl = (path: string) => {
-  const base = API_URL || '';
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `${base}${cleanPath}`;
+  // Retorna vazio já que não há backend
+  return '';
 };
-
-// Exemplo de uso:
-// fetch(apiUrl('/api/login'), { ... })
-// fetch(apiUrl('/api/services'), { ... })
