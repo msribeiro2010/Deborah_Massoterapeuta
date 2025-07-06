@@ -27,7 +27,7 @@ export const staticImages = {
     {
       id: 4,
       url: `${import.meta.env.BASE_URL}images/ambiente-3.jpg`,
-      alt: "Sala de Massagem",
+      alt: "Massagem Terapêutica",
       category: "ambiente"
     }
   ],
