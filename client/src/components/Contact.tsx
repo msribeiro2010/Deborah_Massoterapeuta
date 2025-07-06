@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { queryClient, apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,28 +45,26 @@ const Contact = () => {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: (data: z.infer<typeof formSchema>) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Mensagem enviada",
-        description: "Sua mensagem foi enviada para deborah_santalena@hotmail.com. Entraremos em contato em breve.",
-      });
-      form.reset();
-    },
-    onError: (error) => {
-      toast({
-        title: "Erro",
-        description: error.message || "Ocorreu um erro. Por favor, tente novamente.",
-        variant: "destructive",
-      });
-    },
-  });
-
   function onSubmit(values: z.infer<typeof formSchema>) {
-    mutation.mutate(values);
+    // Mostra mensagem de sucesso
+    toast({
+      title: "Formulário preenchido!",
+      description: "Por favor, entre em contato pelo WhatsApp para finalizar o agendamento.",
+    });
+    
+    // Cria mensagem para WhatsApp
+    const message = `Olá! Meu nome é ${values.name}.
+Tenho interesse no serviço: ${values.service}
+Mensagem: ${values.message}
+Email: ${values.email}
+Telefone: ${values.phone}`;
+    
+    // Abre WhatsApp com a mensagem
+    const whatsappUrl = `https://wa.me/5519971333256?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Limpa o formulário
+    form.reset();
   }
 
   return (
@@ -290,9 +286,8 @@ const Contact = () => {
                   <Button
                     type="submit"
                     className="w-full bg-[#4A7C91] hover:bg-[#4A7C91]/90 text-white py-3 px-6 rounded-lg font-medium transition"
-                    disabled={mutation.isPending}
                   >
-                    {mutation.isPending ? "Enviando..." : "Enviar Mensagem"}
+                    Enviar via WhatsApp
                   </Button>
                 </form>
               </Form>

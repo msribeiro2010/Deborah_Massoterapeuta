@@ -1,64 +1,15 @@
 import { motion } from "framer-motion";
-import { galleryImages } from "@/lib/utils";
-import { useEffect, useState } from "react";
-
-interface AmbienteImage {
-  id: number;
-  imageUrl: string;
-  title: string | null;
-  description: string | null;
-}
+import { staticImages } from "@/data/static-data";
 
 const Gallery = () => {
-  const [ambienteImages, setAmbienteImages] = useState<AmbienteImage[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadAmbienteImages() {
-      try {
-        // Busca imagens da seção 'ambiente'
-        const ambienteResponse = await fetch('/api/images/ambiente');
-        if (ambienteResponse.ok) {
-          const ambienteImgs = await ambienteResponse.json();
-          
-          // Busca também imagens que estão sem seção definida ou com outras seções
-          const allResponse = await fetch('/api/images/all');
-          if (allResponse.ok) {
-            const allImages = await allResponse.json();
-            
-            // Filtra imagens que têm seção vazia ou são da gallery
-            const extraImages = allImages.filter(img => 
-              !img.section || img.section === '' || img.section === 'gallery'
-            );
-            
-            // Adiciona todas as imagens relevantes ao estado
-            setAmbienteImages([...ambienteImgs, ...extraImages]);
-          } else {
-            setAmbienteImages(ambienteImgs);
-          }
-        }
-      } catch (error) {
-        console.error("Erro ao carregar imagens do ambiente:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    loadAmbienteImages();
-  }, []);
-
-  // Se não tiver imagens do banco de dados, usa as do fallback
-  const imagesToDisplay = ambienteImages.length > 0
-    ? ambienteImages.map(img => ({
-        src: img.imageUrl.startsWith('http') ? img.imageUrl : `${window.location.origin}${img.imageUrl}`,
-        alt: img.title || `Imagem do ambiente tranquilo`,
-        description: img.description
-      }))
-    : galleryImages.map((image, index) => ({
-        src: image,
-        alt: `Imagem do ambiente tranquilo ${index + 1}`,
-        description: null
-      }));
+  // Combina imagens do ambiente com todas as outras imagens
+  const ambienteImages = [...staticImages.ambiente, ...staticImages.all];
+  
+  const imagesToDisplay = ambienteImages.map((img, index) => ({
+    src: img.url,
+    alt: img.alt || `Imagem do ambiente tranquilo ${index + 1}`,
+    description: null
+  }));
 
   return (
     <section className="py-24 bg-gradient-to-b from-[#E2F4E8] to-[#EBFAEF] overflow-hidden">

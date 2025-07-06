@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Bath, HeartPulse, HandHelping, Flame, Fan, Leaf } from "lucide-react";
-import { serviceItems } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+import { staticServices } from "@/data/static-data";
 
 const iconComponents = {
   spa: Bath,
@@ -13,7 +13,8 @@ const iconComponents = {
 };
 
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
-  const IconComponent = iconComponents[service.icon as keyof typeof iconComponents];
+  // Usa um ícone padrão para todos os serviços por simplicidade
+  const IconComponent = iconComponents.spa;
 
   return (
     <motion.div
@@ -26,7 +27,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
       <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#EBFAEF] flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#8BBF9F] transition">
         <IconComponent className="text-[#8BBF9F] group-hover:text-white text-xl sm:text-2xl transition" size={22} />
       </div>
-      <h3 className="text-lg sm:text-xl font-display font-semibold mb-2 sm:mb-3">{service.title}</h3>
+      <h3 className="text-lg sm:text-xl font-display font-semibold mb-2 sm:mb-3">{service.name}</h3>
       <p className="text-gray-600 mb-4 text-sm sm:text-base">{service.description}</p>
       <div className="flex justify-between items-center">
         <span className="text-xs sm:text-sm text-[#4A7C91] font-medium">
@@ -114,7 +115,7 @@ const Services = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          {serviceItems.map((service, index) => (
+          {staticServices.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
