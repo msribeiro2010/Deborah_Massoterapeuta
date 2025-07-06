@@ -2,23 +2,20 @@
 
 ## Status Atual ✅
 
-Todos os arquivos necessários foram configurados:
+Site configurado para funcionar **apenas com frontend estático**:
 - ✅ Workflow do GitHub Actions criado
 - ✅ Configuração do Vite para GitHub Pages
 - ✅ Nome do repositório atualizado: `Deborah_Massoterapeuta`
 - ✅ Arquivos de suporte (404.html, .nojekyll)
-- ✅ Configuração de API atualizada
+- ✅ Dados estáticos configurados (sem necessidade de backend)
+- ✅ Formulário de contato integrado com WhatsApp
 
-## 🔴 IMPORTANTE: Backend Necessário
+## � IMPORTANTE: Adicione suas Imagens
 
-**O GitHub Pages hospeda apenas arquivos estáticos (HTML, CSS, JS).**  
-Sua aplicação tem um backend Express que precisa ser hospedado separadamente.
-
-### Opções de Hospedagem para o Backend:
-1. **Vercel** (já tem arquivo vercel.json configurado)
-2. **Railway** (fácil integração com GitHub)
-3. **Render** (gratuito com limitações)
-4. **Heroku** (pago)
+Antes de fazer o deploy, adicione suas imagens em `client/public/images/`:
+- Veja o arquivo `client/public/images/README.md` para lista completa
+- Use os nomes exatos especificados
+- Otimize as imagens para web
 
 ## 📝 Próximos Passos
 
@@ -56,19 +53,13 @@ Após o deploy, acesse:
 https://msribeiro2010.github.io/Deborah_Massoterapeuta/
 ```
 
-## ⚠️ ATENÇÃO: Configurar URL do Backend
+## ✨ Funcionalidades do Site
 
-**ANTES de fazer o deploy, você PRECISA:**
-
-1. Hospedar o backend em algum serviço (Vercel, Railway, etc)
-2. Obter a URL do backend hospedado
-3. Atualizar o arquivo `client/src/lib/api-config.ts`:
-
-```typescript
-export const API_URL = import.meta.env.DEV 
-  ? '' 
-  : 'https://URL-DO-SEU-BACKEND-AQUI'; // Ex: https://deborah-api.vercel.app
-```
+- **Galeria de Imagens**: Apresenta o ambiente e serviços
+- **Informações de Serviços**: Lista completa de massagens oferecidas
+- **Formulário de Contato**: Integrado com WhatsApp para agendamentos
+- **Design Responsivo**: Funciona perfeitamente em todos os dispositivos
+- **SPA (Single Page Application)**: Navegação suave e rápida
 
 ## 🔧 Comandos Úteis
 
@@ -90,10 +81,10 @@ npm run build:gh-pages
 - Aguarde alguns minutos após o primeiro deploy
 - Verifique se o workflow foi concluído com sucesso
 
-### "API não funciona"
-- O backend precisa estar hospedado separadamente
-- Atualize a URL em `client/src/lib/api-config.ts`
-- Faça novo build e deploy após atualizar
+### "Formulário não envia"
+- O formulário abre diretamente o WhatsApp
+- Verifique se o número de WhatsApp está correto
+- Permita pop-ups no navegador se necessário
 
 ### "Imagens não carregam"
 - Verifique se as imagens estão na pasta `client/public`
@@ -103,9 +94,9 @@ npm run build:gh-pages
 
 Se precisar de ajuda:
 1. Verifique os logs em: Actions > Deploy to GitHub Pages
-2. Confirme que o backend está funcionando separadamente
+2. Confirme que as imagens foram adicionadas corretamente
 3. Verifique o console do navegador para erros
 
 ---
 
-**Lembre-se**: O GitHub Pages é APENAS para o frontend. O backend precisa de hospedagem própria!
+**Site 100% estático** - Perfeito para o GitHub Pages! 🎉
